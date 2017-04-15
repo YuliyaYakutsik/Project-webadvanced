@@ -23,6 +23,7 @@ $.gulp.task('default', $.gulp.series(
   'clean',
   'sprite:png',
   $.gulp.parallel(
+    'fonts',
     'sass',
     'pug',
     'js:foundation',
