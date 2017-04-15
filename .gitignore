@@ -37,7 +37,3 @@ build
 # Node.JS
 node_modules
 npm-debug.log
-
-# Files to ignore
-sprite.png
-sprite.scss
