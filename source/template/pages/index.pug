@@ -1,7 +1,40 @@
 extends ../_template
 
 block variables
-  - var title = 'Home page'
+	- var title = 'Main page'
 
 block content
-  include ../common/_greating
+	.wrapper.wrapper_background
+		.content
+			.user__author
+				.user__photo
+					img.user__pic(src='./assets/img/ava.jpg', alt='Ava')
+				.user__name Владимир Астахов
+				.user__description Личный сайт веб разработчика
+			ul.socials__list
+				li.socials__item
+					a.socials__link(href='#')
+						i.fa.fa-vk(aria-hidden='true')
+				li.socials__item
+					a.socials__link(href='#')
+						i.fa.fa-github-alt(aria-hidden='true')
+				li.socials__item
+					a.socials__link(href='#')
+						i.fa.fa-linkedin(aria-hidden='true')
+			ul.nav__list
+				li.nav__item.nav__item-big
+					a.nav__link(href='#')
+						| Мои работы
+				li.nav__item
+					a.nav__link(href='about.html')
+						| Обо мне
+				li.nav__item
+					a.nav__link(href='blog.html')
+						| Блог
+	.authorization
+		.authorization__button
+			a.authorization__link(href='#') Авторизоваться
+	footer.footer
+		.copyright
+			i.fa.fa-copyright(aria-hidden='true')
+			|  Владимир Астахов | Создано с любовью в Loftschool | 2017
