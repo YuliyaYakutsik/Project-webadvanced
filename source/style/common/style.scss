@@ -45,18 +45,22 @@ a{
 	color:inherit;
 }
 
+
+
 .wrapper{
 	text-align: center;
 	min-width: 100%;
 	min-height: 100%;
 	@extend %clearfix;
-	@extend %wrapper;
 
 	&_with_footer{
 		text-align: center;
 		min-width: 100%;
 		min-height: 100%;
-		@extend %clearfix;
+	}
+
+	&_for_blog{
+		@extend %wrapper;
 	}
 }
 

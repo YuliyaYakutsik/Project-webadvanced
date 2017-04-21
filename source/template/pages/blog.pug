@@ -4,21 +4,21 @@ block variables
 	- var title = 'Blog page'
 
 block content
-	.wrapper
-		.header
+	.wrapper.wrapper_for_blog
+		.header.header__blog
 			.header_colourful
 				.blog__container
 					.header-up
 						.header-up__left
 							ul.socials__list.socials__list_color_white
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://vk.com', target='_blank')
 										i.fa.fa-vk(aria-hidden='true')
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://github.com', target='_blank')
 										i.fa.fa-github-alt(aria-hidden='true')
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://linkedin.com', target='_blank')
 										i.fa.fa-linkedin(aria-hidden='true')
 						.header-up__right
 							.burger-menu
@@ -33,11 +33,13 @@ block content
 								svg.header__name-shade-pic
 									use(xlink:href='./assets/img/sprite.svg#blog_header')
 						.user__description.user__description_color_white Статьи, которые я написал
-		.triangle
-			svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 1000 120', preserveaspectratio='none', class='triangle__pic')
-				polygon(class='left', points='0,0 0,120 510,120 510,86')
-				polygon(class='right', points='1000,0 1000,120 490,120 490,86')
 		section.section-blog
+			svg(
+				viewbox="0 0 1000 90"
+				preserveAspectRatio="none"
+				class="triangle triangle_fill_bg works__triangles")
+				polygon(points="0,0 0,90 500.8,90")
+				polygon(points="1000,90 500,90 1000,0")
 			.container
 				.nav-blog
 					ul.nav-blog__list
@@ -84,13 +86,13 @@ block content
 			.footer-up__left
 				ul.footer-up__list
 					li.footer-up__item
-						a.footer-up__link(href="#")
+						a.footer-up__link(href="works.html")
 							|Мои работы
 					li.footer-up__item
-						a.footer-up__link(href="#")
+						a.footer-up__link(href="about.html")
 							|Обо мне
 					li.footer-up__item
-						a.footer-up__link(href="#")
+						a.footer-up__link(href="blog.html")
 							|Блог
 					li.footer-up__item
 						a.footer-up__link(href="#")
@@ -98,13 +100,13 @@ block content
 			.footer-up__right
 				ul.socials__list.socials__list_border_circle
 					li.socials__item
-						a.socials__link(href='#')
+						a.socials__link(href='https://vk.com', target='_blank')
+							i.fa.fa-vk(aria-hidden='true')
+					li.socials__item
+						a.socials__link(href='https://github.com', target='_blank')
 							i.fa.fa-github-alt(aria-hidden='true')
 					li.socials__item
-						a.socials__link(href='#')
-							i.fa.fa-github-alt(aria-hidden='true')
-					li.socials__item
-						a.socials__link(href='#')
+						a.socials__link(href='https://linkedin.com', target='_blank')
 							i.fa.fa-linkedin(aria-hidden='true')
 		.footer-down
 			.footer-down__left

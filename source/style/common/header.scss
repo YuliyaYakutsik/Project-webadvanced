@@ -5,10 +5,16 @@
 	height: 600px;
   	overflow: hidden;
   	position: relative;
+  	@extend %clearfix;
 
 	&_colourful{
 		background-color: rgba(#016672, .3);
 		height: 600px;
+	}
+
+	&__blog{
+		background-position: 0 -155px;
+		height: 400px;
 	}
 }
 

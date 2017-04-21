@@ -1,0 +1,140 @@
+extends ../_template
+
+block variables
+	- var title = 'Works page'
+
+block content
+	.wrapper_with_footer
+		.header#document
+			.header_colourful
+				.pages__container
+					.header-up
+						.header-up__left
+							ul.socials__list.socials__list_color_white
+								li.socials__item
+									a.socials__link(href='https://vk.com', target='_blank')
+										i.fa.fa-vk(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://github.com', target='_blank')
+										i.fa.fa-github-alt(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://linkedin.com', target='_blank')
+										i.fa.fa-linkedin(aria-hidden='true')
+						.header-up__right
+							.burger-menu
+								a.burger-menu__link(href='#')
+									i.fa.fa-bars(aria-hidden='true')
+				a(href="#").down-arrow
+					i.fa.fa-chevron-down(aria-hidden='true')
+				.header-without-triangles
+					.header__title
+						img(src="./assets/img/portfolio-header.png", alt="").header__title-img
+						.header__user
+							.user__photo.user__photo_small
+								img.user__pic(src='./assets/img/ava.jpg', alt='Ava')
+							.user__name.user__name_color_white Владимир Астахов
+							.user__description.user__description_color_white Личный сайт веб-разработчика
+		section.section.works
+			+title('Мои работы', 'works-header.png', 'works__section-title')
+			svg(
+				viewbox="0 0 1000 90"
+				preserveAspectRatio="none"
+				class="triangle triangle_fill_bg works__triangles")
+				polygon(points="0,0 0,90 500.8,90")
+				polygon(points="1000,90 500,90 1000,0")
+			.works__content
+				.works__left
+					.works__sites
+						ul.works__list
+							li.works__item
+								+title__small('Сайт школы онлайн образования', 'works__section-title_small')
+								.works__technologies HTML, CSS, JavaScript
+								.works__link
+									a.works__button(href='#')
+										i.fa.fa-link(aria-hidden='true') 
+										.works__button-text Посмотреть сайт
+				.works__right
+					.works__slider
+						.works__slider_active
+							img(src='./assets/img/1.png').works__slider-pic_active
+						ul.slider__list
+							li.slider__item(style='background-image: url("./assets/img/work-1.png")')
+								a.slider__link(href='#').slider__link_color_lighten
+									.slider__button
+										i.fa.fa-chevron-down(aria-hidden='true')
+							li.slider__item(style='background-image: url("./assets/img/work-2.png")')
+								a.slider__link(href='#')
+									.slider__button
+										i.fa.fa-chevron-up(aria-hidden='true')
+		+title('Что обо мне говорят', 'about-header.png', 'reviews-title')
+		section.section.last.reviews
+			a(href="#document").up-arrow
+					i.fa.fa-chevron-up(aria-hidden='true')
+			.reviews_colourful
+				.reviews__block
+					ul.reviews__list
+						li.reviews__item
+							i.fa.fa-quote-left(aria-hidden='true').reviews__item-quote
+							.reviews__item-text 
+								|Этот парень проходил обучение веб-разработке не где-то, а в Loftschool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+							.reviews__item-person
+								.reviews-person__photo
+									img.reviews-person__photo-pic(src='./assets/img/teacher.jpg')
+								.reviews__item-person-block
+									.reviews__item-person-title Ковальчук Дмитрий
+									.reviews__item-person-role Основатель Loftchool
+						li.reviews__item
+							i.fa.fa-quote-left(aria-hidden='true').reviews__item-quote
+							.reviews__item-text 
+								|Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+							.reviews__item-person
+								.reviews-person__photo
+									img.reviews-person__photo-pic(src='./assets/img/teacher2.jpg')
+								.reviews__item-person-block
+									.reviews__item-person-title Сабанцев Владимир
+									.reviews__item-person-role Преподаватель
+				.contacts.information.write-me
+					.write-me_colourful
+						+title__small('Связаться со мной', 'about__section-title_small')
+						form.reviews__form(method="POST")
+							.reviews__form-inputs
+								input.reviews__form-input.reviews__form-element(name="name", type="text", placeholder='Имя')
+								input.reviews__form-input.reviews__form-element(name="email", type="email", placeholder='Email')
+								textarea.reviews__form-textarea.reviews__form-element(name="textarea", placeholder='Ваше сообщение')
+							input.reviews__form-button(name="", type="submit", value="Отправить")
+							input.reviews__form-button.reviews__form-button-reset(name="", type="reset" value="Очистить")
+			footer.footer_margin_top
+				.footer-up
+					.footer-up__left
+						ul.footer-up__list
+							li.footer-up__item
+								a.footer-up__link(href="works.html")
+									|Мои работы
+							li.footer-up__item
+								a.footer-up__link(href="about.html")
+									|Обо мне
+							li.footer-up__item
+								a.footer-up__link(href="blog.html")
+									|Блог
+							li.footer-up__item
+								a.footer-up__link(href="#")
+									|Авторизация
+					.footer-up__right
+						ul.socials__list.socials__list_border_circle
+							li.socials__item
+								a.socials__link(href='https://vk.com', target='_blank')
+									i.fa.fa-vk(aria-hidden='true')
+							li.socials__item
+								a.socials__link(href='https://github.com', target='_blank')
+									i.fa.fa-github-alt(aria-hidden='true')
+							li.socials__item
+								a.socials__link(href='https://linkedin.com', target='_blank')
+									i.fa.fa-linkedin(aria-hidden='true')
+				.footer-down
+					.footer-down__left
+						.footer__description
+							|Я веб-разработчик из Минска и этот сайт сделал в рамках обучения в Школе онлайн-образования Loftschool.
+					.footer-down__right
+						.copyright.copyright_position_left
+							i.fa.fa-copyright(aria-hidden='true')
+							|  Владимир Астахов | Создано с любовью в Loftschool | 2017

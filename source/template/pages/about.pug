@@ -12,20 +12,20 @@ block content
 						.header-up__left
 							ul.socials__list.socials__list_color_white
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://vk.com', target='_blank')
 										i.fa.fa-vk(aria-hidden='true')
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://github.com', target='_blank')
 										i.fa.fa-github-alt(aria-hidden='true')
 								li.socials__item
-									a.socials__link(href='#')
+									a.socials__link(href='https://linkedin.com', target='_blank')
 										i.fa.fa-linkedin(aria-hidden='true')
 						.header-up__right
 							.burger-menu
 								a.burger-menu__link(href='#')
 									i.fa.fa-bars(aria-hidden='true')
 				a(href="").down-arrow
-					img(src="./assets/img/arrow_down.svg", alt="").down-arrow__icon
+					i.fa.fa-chevron-down(aria-hidden='true')
 				.header-without-triangles
 					.header__title
 						img(src="./assets/img/portfolio-header.png", alt="").header__title-img
@@ -62,11 +62,11 @@ block content
 						.about-user-info__title
 							+title__small('Чем я могу быть вам полезен', 'about__section-title_small')
 						.about-user-info__text
-							p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam officia incidunt, quisquam sit harum totam, perspiciatis nesciunt, culpa at, laborum nobis error. In doloremque iusto rem, alias incidunt, expedita quos.
-		section.section.map
+							p Больше всего меня привлекает Frontend разработка, но я также знаком и могу решать сложные задачи на Backend. Но давайте по порядку.
+		section.section.map.last
 			.map__marker
 				img(src='./assets/img/map_marker.svg').map__marker-pic
-			.contacts
+			.contacts.information
 				+title__small('Контакты', 'about__section-title_small')
 				.contacts-socials
 					ul.contacts-socials__list
@@ -87,13 +87,13 @@ block content
 					.footer-up__left
 						ul.footer-up__list
 							li.footer-up__item
-								a.footer-up__link(href="#")
+								a.footer-up__link(href="works.html")
 									|Мои работы
 							li.footer-up__item
-								a.footer-up__link(href="#")
+								a.footer-up__link(href="about.html")
 									|Обо мне
 							li.footer-up__item
-								a.footer-up__link(href="#")
+								a.footer-up__link(href="blog.html")
 									|Блог
 							li.footer-up__item
 								a.footer-up__link(href="#")
@@ -101,13 +101,13 @@ block content
 					.footer-up__right
 						ul.socials__list.socials__list_border_circle
 							li.socials__item
-								a.socials__link(href='#')
+								a.socials__link(href='https://vk.com', target='_blank')
+									i.fa.fa-vk(aria-hidden='true')
+							li.socials__item
+								a.socials__link(href='https://github.com', target='_blank')
 									i.fa.fa-github-alt(aria-hidden='true')
 							li.socials__item
-								a.socials__link(href='#')
-									i.fa.fa-github-alt(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='#')
+								a.socials__link(href='https://linkedin.com', target='_blank')
 									i.fa.fa-linkedin(aria-hidden='true')
 				.footer-down
 					.footer-down__left

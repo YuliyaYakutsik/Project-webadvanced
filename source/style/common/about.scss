@@ -13,6 +13,7 @@
 
 .about__left {
   background: $white;
+  padding-bottom: 135px;
   
   .about__triangles{
   	left: 0;
@@ -21,6 +22,8 @@
 
 .about__right {
   background: $beige;
+  height: 865px;
+  padding: 0 110px 30px 30px;
 
   .about__triangles{
   	right: 0;
@@ -45,6 +48,10 @@
       fill: $beige;
     }
 
+    &_bg {
+      fill: $bg;
+    }
+
   }
 }
 
@@ -54,10 +61,12 @@
   left: 50%;
   transform: translateX(-50%);
   color: rgba(#fff, .55);
+  font-size: 32px;
+  z-index: 20;
+  transition: $transition;
   
   &:hover{
     color: #fff;
-    cursor: hand;
   }
 }
 
@@ -70,7 +79,7 @@
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  margin-top: -25px;
+  
   color: #373e42;
   text-transform: uppercase;
 
@@ -80,8 +89,7 @@
     content: "";
     display: block;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 88px;
     background: rgba(#373e42, .2);
     width: 22px;
     height: 5px;
@@ -94,6 +102,10 @@
   &:before {
     left: $margin;
   }
+}
+
+.about__section-title{
+  margin-top: -25px;
 }
 
 .about__left-title{
@@ -135,7 +147,7 @@
   display: inline-block;
   position: relative;
   text-transform: uppercase;
-  max-width: 245px+160px;
+  max-width: 290px+160px;
 
   $margin : 40px;
 
@@ -143,8 +155,7 @@
     content: "";
     display: block;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 46px;
     background: rgba($main-font-color, .2);
     width: 22px;
     height: 5px;
@@ -168,14 +179,22 @@
   }
 }
 
-.map{
+.about-user-info__text{
+  text-align: left;
+}
+
+.last{
   width: 100%;
   height: 925px;
   overflow: hidden;
-  background: url('../img/map.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
+}
+
+.map{
+  background: url('../img/map.jpg');
+  background-size: cover;
 }
 
 .map__marker{
@@ -189,7 +208,7 @@
   height: 40px;
 }
 
-.contacts{
+.information{
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -198,6 +217,7 @@
   border-radius: 8px;
   color: rgb(55,62,66);
   min-width: 380px;
+  overflow: hidden;
 }
 
 .contacts-socials{
