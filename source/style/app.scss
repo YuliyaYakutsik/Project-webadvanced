@@ -1,5 +1,40 @@
-body {
-  margin: 0;
+$transition: .5s;
+$background: url('../img/mountains.jpg');
+$footer: 110px;
+$white : #efeee9;
+$beige: #eeebdf;
+$main-font-color : #455a64;
+$bg : rgb(250, 248, 240);
+
+%clearfix{
+	&:after, &:before{
+		content:"";
+		display: block;
+	}
+	&:after{
+		clear: both;
+	}
 }
 
-@import 'common/greating';
+%wrapper{
+	&:after{
+		content: "";
+		display: block;
+		height: $footer;
+	}
+}
+
+//layout setups
+@import 'layout/fonts';
+@import 'layout/font-awesome';
+
+//blocks setups
+@import 'common/style';
+
+//pages setups
+@import 'common/index';
+@import 'common/header';
+@import 'common/footer';
+@import 'common/blog';
+@import 'common/about';
+@import 'common/works';

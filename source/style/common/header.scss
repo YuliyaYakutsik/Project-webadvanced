@@ -1,0 +1,164 @@
+.header{
+	background: $background;
+	background-size: cover;
+	background-position: 0 -55px;
+	height: 600px;
+  	overflow: hidden;
+  	position: relative;
+  	@extend %clearfix;
+
+	&_colourful{
+		background-color: rgba(#016672, .3);
+		height: 600px;
+	}
+
+	&__blog{
+		background-position: 0 -155px;
+		height: 400px;
+	}
+}
+
+.blog__container{
+	width: 1150px;
+	margin: 0 auto;
+	padding-left: 10px;
+}
+
+.pages__container{
+	width: 1800px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+.header-up{
+	@extend %clearfix;
+	padding-top: 23px;
+}
+
+.header-up__right{
+	float: right;
+}
+
+.header-up__left{
+	float: left;
+}
+
+.socials__list_color_white{
+	margin-bottom: 20px;
+
+	.socials__link{
+	color: rgba(#fff, .55);
+	font-size: 28px;
+		&:hover{
+			color: #fff;
+		}
+	}
+
+	.socials__item{
+		&:not(:first-child){
+			padding-left: 25px;
+		}
+	}
+}
+
+.burger-menu{
+	margin-top: -10px;
+
+	&__link{
+	color: rgba(#fff, .55);
+	font-size: 46px;
+	transition: $transition;
+		&:hover{
+			color: #fff;
+		}
+	}
+}
+
+.header-without-triangles{
+	height: 360px;
+	position: relative;
+}
+
+.header__title{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+  	width: 100%;
+}
+
+.header__title-img{
+  	display: inline-block;
+}
+
+.header__user{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  	text-align: center;
+  	width: 100%;
+}
+
+.header__name{
+	color: #fff;
+	position: relative;
+}
+
+.header__name-shade{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-40%);
+	left: 0;
+	right: 0;
+}
+
+.header__name-shade-pic{
+	fill: rgba(#fff, .15);
+}
+
+.subtitle{
+	font-family: 'bernier_regularregular', Arial, sans-serif;
+	font-size: 63px;
+	position: relative;
+	display: inline-block;
+
+	&:before{
+		content:"";
+		width: 17px;
+		height: 5px;
+		background: rgba(#fff, .25);
+		position: absolute;
+		top: 50%;
+		left: -37px;
+		transform: translateY(-50%);
+	}
+
+	&:after{
+		content:"";
+		width: 17px;
+		height: 5px;
+		background: rgba(#fff, .25);
+		position: absolute;
+		top: 50%;
+		right: -37px;
+		transform: translateY(-50%);
+	}
+}
+
+.user__photo_small{
+	width: 140px;
+	height: 140px;
+}
+
+.user__name_color_white{
+	color:#fff;
+	font-family: 'roboto_medium', Arial, sans-serif;
+	font-size: 35px;
+	padding-top: 10px;
+}
+
+.user__description_color_white{
+	color: rgba(#fff, .8);
+	line-height: .5;
+}

@@ -1,0 +1,120 @@
+extends ../_template
+
+block variables
+	- var title = 'About page'
+
+block content
+	.wrapper_with_footer
+		.header
+			.header_colourful
+				.pages__container
+					.header-up
+						.header-up__left
+							ul.socials__list.socials__list_color_white
+								li.socials__item
+									a.socials__link(href='https://vk.com', target='_blank')
+										i.fa.fa-vk(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://github.com', target='_blank')
+										i.fa.fa-github-alt(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://linkedin.com', target='_blank')
+										i.fa.fa-linkedin(aria-hidden='true')
+						.header-up__right
+							.burger-menu
+								a.burger-menu__link(href='#')
+									i.fa.fa-bars(aria-hidden='true')
+				a(href="").down-arrow
+					i.fa.fa-chevron-down(aria-hidden='true')
+				.header-without-triangles
+					.header__title
+						img(src="./assets/img/portfolio-header.png", alt="").header__title-img
+						.header__user
+							.user__photo.user__photo_small
+								img.user__pic(src='./assets/img/ava.jpg', alt='Ava')
+							.user__name.user__name_color_white Владимир Астахов
+							.user__description.user__description_color_white Личный сайт веб-разработчика
+		section.section.about
+			.about__left
+				svg(
+					viewbox="0 0 1000 180"
+					preserveAspectRatio="none"
+					class="triangle triangle_fill_white about__triangles")
+					polygon(points="0,0 0,180 1000,180")
+				.about__left-title
+					+title('Обо мне', 'about-header.png', 'about__section-title')
+				.user-about.about__section-description_inline
+					.user-about__photo
+						img.user-about__pic(src='./assets/img/about.jpg', alt='Ava-big')
+					.user-about__title
+						+title__small('Кто я', 'about__section-title_small')
+					.user-about__text
+						p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+						p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+			.about__right
+				svg(
+					viewbox="0 0 1000 180"
+					preserveAspectRatio="none"
+					class="triangle triangle_fill_beige about__triangles")
+					polygon(points="0,180 1000,180 1000,0")
+				.about-data
+					.about-data__description.about-user-info
+						.about-user-info__title
+							+title__small('Чем я могу быть вам полезен', 'about__section-title_small')
+						.about-user-info__text
+							p Больше всего меня привлекает Frontend разработка, но я также знаком и могу решать сложные задачи на Backend. Но давайте по порядку.
+		section.section.map.last
+			.map__marker
+				img(src='./assets/img/map_marker.svg').map__marker-pic
+			.contacts.information
+				+title__small('Контакты', 'about__section-title_small')
+				.contacts-socials
+					ul.contacts-socials__list
+						li.contacts-socials__item
+							i.fa.fa-skype.contacts-socials__icon(aria-hidden='true') 
+							.contacts-socials__text skype_kdn
+						li.contacts-socials__item
+							i.fa.fa-envelope.contacts-socials__icon(aria-hidden='true') 
+							.contacts-socials__text astahov@gmail.com
+						li.contacts-socials__item
+							i.fa.fa-phone.contacts-socials__icon(aria-hidden='true')
+							.contacts-socials__text +7 931 200 93 24
+						li.contacts-socials__item
+							i.fa.fa-map-marker.contacts-socials__icon(aria-hidden='true')
+							.contacts-socials__text г.Новосибирск, ул. Инская, д. 5
+			footer.footer_margin_top
+				.footer-up
+					.footer-up__left
+						ul.footer-up__list
+							li.footer-up__item
+								a.footer-up__link(href="works.html")
+									|Мои работы
+							li.footer-up__item
+								a.footer-up__link(href="about.html")
+									|Обо мне
+							li.footer-up__item
+								a.footer-up__link(href="blog.html")
+									|Блог
+							li.footer-up__item
+								a.footer-up__link(href="#")
+									|Авторизация
+					.footer-up__right
+						ul.socials__list.socials__list_border_circle
+							li.socials__item
+								a.socials__link(href='https://vk.com', target='_blank')
+									i.fa.fa-vk(aria-hidden='true')
+							li.socials__item
+								a.socials__link(href='https://github.com', target='_blank')
+									i.fa.fa-github-alt(aria-hidden='true')
+							li.socials__item
+								a.socials__link(href='https://linkedin.com', target='_blank')
+									i.fa.fa-linkedin(aria-hidden='true')
+				.footer-down
+					.footer-down__left
+						.footer__description
+							|Я веб-разработчик из Минска и этот сайт сделал в рамках обучения в Школе онлайн-образования Loftschool.
+					.footer-down__right
+						.copyright.copyright_position_left
+							i.fa.fa-copyright(aria-hidden='true')
+							|  Владимир Астахов | Создано с любовью в Loftschool | 2017
+	
