@@ -231,10 +231,17 @@
   width: 100%;
   padding: 8px;
   border-radius: 6px;
+  border: 2px solid transparent;
+
+  &:focus{
+    outline: none;
+    border: 2px solid #009688;
+  }
 }
 
 .reviews__form-textarea{
   height: 150px;
+  resize: none;
 }
 
 .reviews__form-button{

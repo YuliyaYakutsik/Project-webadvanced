@@ -6,20 +6,21 @@ block variables
 block content
 	.wrapper_with_footer
 		.header#document
-			.header_colourful
+			.header__input
 				.pages__container
 					.header-up
 						.header-up__left
-							ul.socials__list.socials__list_color_white
-								li.socials__item
-									a.socials__link(href='https://vk.com', target='_blank')
-										i.fa.fa-vk(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://github.com', target='_blank')
-										i.fa.fa-github-alt(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://linkedin.com', target='_blank')
-										i.fa.fa-linkedin(aria-hidden='true')
+							.socials.socials_place_header
+								ul.socials__list.socials__list_color_white
+									li.socials__item
+										a.socials__link(href='https://vk.com', target='_blank')
+											i.fa.fa-vk(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://github.com', target='_blank')
+											i.fa.fa-github-alt(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://linkedin.com', target='_blank')
+											i.fa.fa-linkedin(aria-hidden='true')
 						.header-up__right
 							.burger-menu
 								a.burger-menu__link(href='#')
@@ -54,9 +55,9 @@ block content
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 				.works__right
-					.works__slider
-						.works__slider_active
-							img(src='assets/img/1.png').works__slider-pic_active
+					.slider.slider_section_works
+						.slider__active
+							img(src='assets/img/1.png').slider__active-pic
 						ul.slider__list
 							li.slider__item(style='background-image: url("assets/img/work-1.png")')
 								a.slider__link(href='#').slider__link_color_lighten
@@ -120,16 +121,17 @@ block content
 								a.footer-up__link(href="#")
 									|Авторизация
 					.footer-up__right
-						ul.socials__list.socials__list_border_circle
-							li.socials__item
-								a.socials__link(href='https://vk.com', target='_blank')
-									i.fa.fa-vk(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://github.com', target='_blank')
-									i.fa.fa-github-alt(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://linkedin.com', target='_blank')
-									i.fa.fa-linkedin(aria-hidden='true')
+						.socials.socials_place_footer
+							ul.socials__list.socials__list_border_circle
+								li.socials__item
+									a.socials__link(href='https://vk.com', target='_blank')
+										i.fa.fa-vk(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://github.com', target='_blank')
+										i.fa.fa-github-alt(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://linkedin.com', target='_blank')
+										i.fa.fa-linkedin(aria-hidden='true')
 				.footer-down
 					.footer-down__left
 						.footer__description

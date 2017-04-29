@@ -1,14 +1,13 @@
 {
   "skills" : [
     {
-      "Frontend" : [1, 2, 3]
+      "Frontend" : ["HTML5", "CSS3", "JavaScript & JQuery"]
     },
     {
-      "Backend" : [4, 5, 6]
+      "Backend" : ["PHP", "MySQL", "Node.js & npm", "Mongo.db", "Mongo.db"]
     },
     {
-      "WorkFlow" : [7, 8, 9, 10, 11],
-      "text" : "Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты."
+      "WorkFlow" : ["Git", "Gulp", "Bower"]
     }
   ]
 }

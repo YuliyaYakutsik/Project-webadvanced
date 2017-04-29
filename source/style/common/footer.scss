@@ -47,13 +47,15 @@
 	}
 }
 
-.socials__list_border_circle{
+.socials_place_footer{
 	margin-bottom: 0;
 
 	.socials__item:not(:first-child){
 		padding-left: 10px
 	}
+}
 
+.socials__list_border_circle{
 	.fa{
 		position: absolute;
     	top: 50%;

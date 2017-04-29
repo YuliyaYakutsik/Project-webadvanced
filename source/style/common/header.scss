@@ -7,9 +7,9 @@
   	position: relative;
   	@extend %clearfix;
 
-	&_colourful{
+	&__input{
 		background-color: rgba(#016672, .3);
-		height: 600px;
+		height: 100%;
 	}
 
 	&__blog{
@@ -25,7 +25,7 @@
 }
 
 .pages__container{
-	width: 1800px;
+	max-width: 1800px;
 	margin: 0 auto;
 	padding: 0 30px;
 }
@@ -43,20 +43,21 @@
 	float: left;
 }
 
-.socials__list_color_white{
+.socials_place_header{
 	margin-bottom: 20px;
 
+	.socials__item{
+		&:not(:first-child){
+			padding-left: 25px;
+		}
+	}
+}
+.socials__list_color_white{
 	.socials__link{
 	color: rgba(#fff, .55);
 	font-size: 28px;
 		&:hover{
 			color: #fff;
-		}
-	}
-
-	.socials__item{
-		&:not(:first-child){
-			padding-left: 25px;
 		}
 	}
 }
@@ -89,6 +90,10 @@
 
 .header__title-img{
   	display: inline-block;
+
+  	@include laptop{
+  		width: 95%;
+  	}
 }
 
 .header__user{

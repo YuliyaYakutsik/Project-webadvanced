@@ -63,11 +63,17 @@
 		height: 5px;
 		position: absolute;
 		top: -80px;
-		right: 90px;
+		right: 290px;
 		left: 0;
 		background: rgba(#373e42, .07);
 	}
 }
+
+.content-blog__item-main{
+	padding-right: 40px;
+	margin-bottom: 15px;
+}
+
 .content-blog__item-title{
 	font-family: 'bernier_regularregular', Arial, sans-serif;
 	font-size: 35px;
@@ -81,4 +87,30 @@
 .content-blog__item-date{
 	padding: 20px 0;
 	color: #00bfa5;
+}
+
+.content-blog__item-code{
+	@extend %clearfix;
+	display: flex;
+}
+
+.content-blog__item-code-list{
+	font-family: monospace;
+	text-align: right;
+	flex: 1;
+	padding: 18px 15px;
+	background: #ccc;
+}
+
+.content-blog__item-code-data{
+	font-family: monospace;
+	flex: 40;
+	font-size: 13px;
+	line-height: 18px; 
+	margin: 0;
+	background: #cceecc;
+}
+
+.content-blog__item-code-data_green{
+	color: green;
 }

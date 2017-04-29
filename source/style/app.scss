@@ -24,6 +24,24 @@ $bg : rgb(250, 248, 240);
 	}
 }
 
+@mixin laptop(){
+	@media screen and (max-width:1200px){
+		@content;
+	}
+}
+
+@mixin tablets(){
+	@media screen and (max-width:768px){
+		@content;
+	}
+}
+
+@mixin phones(){
+	@media screen and (max-width:480px){
+		@content;
+	}
+}
+
 //layout setups
 @import 'layout/fonts';
 @import 'layout/font-awesome';
