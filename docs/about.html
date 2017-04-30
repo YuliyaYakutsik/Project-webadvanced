@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <title>About page</title>
@@ -17,15 +17,17 @@
   <body>
     <div class="wrapper_with_footer">
       <div class="header">
-        <div class="header_colourful">
+        <div class="header__input">
           <div class="pages__container">
             <div class="header-up">
               <div class="header-up__left">
-                <ul class="socials__list socials__list_color_white">
-                  <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                  <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                  <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                </ul>
+                <div class="socials socials_place_header">
+                  <ul class="socials__list socials__list_color_white">
+                    <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                    <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                  </ul>
+                </div>
               </div>
               <div class="header-up__right">
                 <div class="burger-menu"><a class="burger-menu__link" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
@@ -44,13 +46,15 @@
         </div>
       </div>
       <section class="section about">
+        <svg class="triangle triangle_fill_white about__triangles about__triangles_device_tablets" viewbox="0 0 1000 90" preserveAspectRatio="none">
+          <polygon points="0,0 0,90 500.8,90"></polygon>
+          <polygon points="1000,90 500,90 1000,0"></polygon>
+        </svg>
         <div class="about__left">
           <svg class="triangle triangle_fill_white about__triangles" viewbox="0 0 1000 180" preserveAspectRatio="none">
             <polygon points="0,0 0,180 1000,180"></polygon>
           </svg>
-          <div class="about__left-title">
-            <div class="title about__section-title" style="background-image: url('assets/img/about-header.png');">Обо мне</div>
-          </div>
+          <div class="title about__section-title" style="background-image: url('assets/img/about-header.png');">Обо мне</div>
           <div class="user-about about__section-description_inline">
             <div class="user-about__photo"><img class="user-about__pic" src="assets/img/about.jpg" alt="Ava-big"></div>
             <div class="user-about__title">
@@ -74,6 +78,128 @@
               <div class="about-user-info__text">
                 <p>Больше всего меня привлекает Frontend разработка, но я также знаком и могу решать сложные задачи на Backend. Но давайте по порядку.</p>
               </div>
+              <ul class="skills">
+                <li class="skills__item">
+                  <div class="skill-section">
+                    <div class="skill-section__title">Frontend</div>
+                    <ul class="skill-section__list">
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">HTML5</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">CSS3</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">JavaScript &amp; JQuery</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="skills__item">
+                  <div class="skill-section">
+                    <div class="skill-section__title">Backend</div>
+                    <ul class="skill-section__list">
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">PHP</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">MySQL</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Node.js &amp; npm</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Mongo.db</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Mongo.db</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="skills__item">
+                  <div class="skill-section">
+                    <div class="skill-section__title">WorkFlow</div>
+                    <ul class="skill-section__list">
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Git</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Gulp</div>
+                        </div>
+                      </li>
+                      <li class="skills-section__item">
+                        <div class="skill">
+                          <svg class="skill__circle" viewbox="0 0 110 110">
+                            <circle class="skill__circle-first" r="45" cx="50%" cy="50%"></circle>
+                            <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"></circle>
+                          </svg>
+                          <div class="skill__name">Bower</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -98,8 +224,8 @@
               </li>
             </ul>
           </div>
-        </div>
-        <footer class="footer_margin_top">
+        </div><img class="map__picture" src="assets/img/map.jpg">
+        <footer class="footer footer_margin_top">
           <div class="footer-up">
             <div class="footer-up__left">
               <ul class="footer-up__list">
@@ -110,11 +236,13 @@
               </ul>
             </div>
             <div class="footer-up__right">
-              <ul class="socials__list socials__list_border_circle">
-                <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-              </ul>
+              <div class="socials socials_place_footer">
+                <ul class="socials__list socials__list_border_circle">
+                  <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                  <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                  <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="footer-down">
