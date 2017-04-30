@@ -2,6 +2,11 @@
   @extend %clearfix;
   color: $main-font-color;
   display: flex;
+  position: relative;
+
+  @include tablets{
+    flex-direction: column;
+  }
 
 }
 
@@ -16,11 +21,16 @@
   background: $white;
   padding-bottom: 135px;
   padding-right: 18px;
+  padding-left: 15px;
   display: flex;
 
   @include laptop{
     flex-direction: column;
     align-items: center;
+  }
+
+  @include tablets{
+    padding-bottom: 20px;
   }
   
   .about__triangles{
@@ -35,11 +45,25 @@
   .about__triangles{
   	right: 0;
   }
+
 }
 
 .about__triangles {
   position: absolute;
   bottom: 100%;
+
+  @include tablets{
+    display: none;
+  }
+}
+
+.about__triangles_device_tablets{
+  left: 0;
+  display: none;
+
+  @include tablets{
+    display: block;
+  }
 }
 
 .triangle {
@@ -109,17 +133,37 @@
   &:before {
     left: $margin;
   }
+
 }
 
 .about__section-title{
-  margin-top: -25px;
+  align-self: flex-start;
+  max-width: 50%;
+  margin-top: -50px;
+
+  @include laptop{
+    align-self: center;
+    max-width: 100%;
+  }
+
+  @include tablets{
+    margin-top: 0;
+  }
 }
 
-.about__left-title{
-  padding-left: 20px;
-  flex: 1;
-}
+.works__section-title{
+  @include phones{
+    font-size: 58px;
+  }
 
+  &:before{
+    top:85px;
+  }
+
+  &:after{
+    top:85px;
+  }
+}
 
 .about__section-description_inline{
   text-align: left;
@@ -137,10 +181,20 @@
 .user-about__pic{
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 .user-about__title{
   text-align: center;
+}
+
+.about-data{
+
+  @include tablets{
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
 }
 
 .title__small{
@@ -162,6 +216,12 @@
     background: rgba($main-font-color, .2);
     width: 22px;
     height: 5px;
+
+    @include tablets{
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
   }
 
   &:after {
@@ -187,10 +247,21 @@
   margin-bottom: 30px;
   font-family: 'robotoregular', Arial, sans-serif;
   font-size: 16px;
+
+  @include tablets{
+    text-align: center;
+    max-width: 462px;
+    margin: 0 auto 30px;
+  }
+
 }
 
 .skills{
   text-align: left;
+
+  @include tablets{
+    text-align: center;
+  }
 }
 
 .skills__item{
@@ -201,6 +272,10 @@
   margin-left: -20px;
   display: flex;
   flex-wrap: wrap;
+
+  @include tablets{
+    justify-content: center;
+  }
 }
 
 .skills-section__item{
@@ -251,15 +326,6 @@
   position: relative;
 }
 
-.map{
-  background: url('../img/map.jpg');
-  background-size: cover;
-
-  @include laptop{
-    background-position: -600px center;
-  }
-}
-
 .map__marker{
   position: absolute;
   top:362px;
@@ -275,6 +341,10 @@
   height: 40px;
 }
 
+.map__picture{
+  height: 100%;
+}
+
 .information{
   position: absolute;
   transform: translate(-50%, -50%);
@@ -285,6 +355,19 @@
   color: rgb(55,62,66);
   min-width: 380px;
   overflow: hidden;
+
+  @include tablets{
+    top:40%;
+    transform: translate(-50%, -40%);
+  }
+
+  @include phones{
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+
 }
 
 .contacts-socials{

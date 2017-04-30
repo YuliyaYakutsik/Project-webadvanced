@@ -36,14 +36,19 @@ block content
 							.user__name.user__name_color_white Владимир Астахов
 							.user__description.user__description_color_white Личный сайт веб-разработчика
 		section.section.about
+			svg(
+				viewbox="0 0 1000 90"
+				preserveAspectRatio="none"
+				class="triangle triangle_fill_white about__triangles about__triangles_device_tablets")
+				polygon(points="0,0 0,90 500.8,90")
+				polygon(points="1000,90 500,90 1000,0")
 			.about__left
 				svg(
 					viewbox="0 0 1000 180"
 					preserveAspectRatio="none"
 					class="triangle triangle_fill_white about__triangles")
 					polygon(points="0,0 0,180 1000,180")
-				.about__left-title
-					+title('Обо мне', 'about-header.png', 'about__section-title')
+				+title('Обо мне', 'about-header.png', 'about__section-title')
 				.user-about.about__section-description_inline
 					.user-about__photo
 						img.user-about__pic(src='assets/img/about.jpg', alt='Ava-big')
@@ -97,7 +102,8 @@ block content
 						li.contacts-socials__item
 							i.fa.fa-map-marker.contacts-socials__icon(aria-hidden='true')
 							.contacts-socials__text г.Новосибирск, ул. Инская, д. 5
-			footer.footer_margin_top
+			img.map__picture(src='assets/img/map.jpg')
+			footer.footer.footer_margin_top
 				.footer-up
 					.footer-up__left
 						ul.footer-up__list

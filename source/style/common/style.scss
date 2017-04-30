@@ -1,5 +1,17 @@
 html{
 	font-family: 'robotomedium', Arial, sans-serif;
+
+	@include laptop{
+    	font-size: 14px;
+    }
+	
+	@include tablets{
+    	font-size: 13px;
+    }
+
+    @include phones{
+    	font-size: 11px;
+    }
 }
 
 html, body{

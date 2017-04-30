@@ -8,16 +8,25 @@
 	padding: 80px 0;
 	color: #77868d;
 	font-family: 'robotoregular', Arial, sans-serif;
+
+	@include phones{
+    	padding: 20px 0;
+    }
 }
 
 .container{
 	max-width: 1500px;
+	padding: 0 20px;
 }
 
 .nav-blog{
 	float: left;
 	width: 30%;
 	text-align: right;
+
+	@include tablets{
+    	display: none;
+  	}
 }
 
 .nav-blog__list{
@@ -49,6 +58,12 @@
 	width: 60%;
 	text-align: left;
 	margin-left: 10%;
+
+	@include tablets{
+    	float: none;
+    	width: 100%;
+    	margin-left: 0;
+  	}
 }
 
 .content-blog__item{
@@ -56,6 +71,10 @@
 
 	&:not(:first-child){
 		margin-top: 160px;
+
+		@include phones{
+	    	margin-top: 80px;
+  		}
 	}
 
 	&:not(:first-child)::before{
@@ -66,12 +85,24 @@
 		right: 290px;
 		left: 0;
 		background: rgba(#373e42, .07);
+
+		@include laptop{
+    		right: 0;
+  		}
+
+  		@include phones{
+	    	top: -40px;
+  		}
 	}
 }
 
 .content-blog__item-main{
-	padding-right: 40px;
+	padding-right: 60px;
 	margin-bottom: 15px;
+
+	@include laptop{
+    	padding-right: 0;
+  	}
 }
 
 .content-blog__item-title{
