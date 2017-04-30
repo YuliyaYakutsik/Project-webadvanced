@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <title>Blog page</title>
@@ -17,15 +17,17 @@
   <body>
     <div class="wrapper wrapper_for_blog">
       <div class="header header__blog">
-        <div class="header_colourful">
+        <div class="header__input">
           <div class="blog__container">
             <div class="header-up">
               <div class="header-up__left">
-                <ul class="socials__list socials__list_color_white">
-                  <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                  <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                  <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                </ul>
+                <div class="socials socials_place_header">
+                  <ul class="socials__list socials__list_color_white">
+                    <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                    <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+                    <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                  </ul>
+                </div>
               </div>
               <div class="header-up__right">
                 <div class="burger-menu"><a class="burger-menu__link" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
@@ -62,30 +64,57 @@
           <div class="content-blog">
             <ul class="content-blog__list">
               <li class="content-blog__item">
-                <div class="content-blog__item-title">Самое важное в SASS</div>
-                <div class="content-blog__item-date">22 ноября 2016</div>
-                <div class="content-blog__item-text">
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                <div class="content-blog__item-main">
+                  <div class="content-blog__item-title">Самое важное в SASS</div>
+                  <div class="content-blog__item-date">22 ноября 2016</div>
+                  <div class="content-blog__item-text">
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                  </div>
+                </div>
+                <div class="content-blog__item-code">
+                  <ul class="content-blog__item-code-list">
+                    <li class="content-blog__item-code-item">
+                       1</li>
+                    <li class="content-blog__item-code-item">
+                       2</li>
+                    <li class="content-blog__item-code-item">
+                       3</li>
+                    <li class="content-blog__item-code-item">
+                       4</li>
+                    <li class="content-blog__item-code-item">
+                       5</li>
+                  </ul>
+                  <pre class="content-blog__item-code-data">
+                    <p class="content-blog__item-code-datatext">//присвоить
+$(document).data(<span class="content-blog__item-code-data_green">'prop'</span>, {anything: <span class="content-blog__item-code-data_green">"любой объект"</span>})
+
+//присвоить
+$(document).data(<span class="content-blog__item-code-data_green">'prop'</span>, {anything: <span class="content-blog__item-code-data_green">"любой объект"</span>})
+                    </p></pre>
                 </div>
               </li>
               <li class="content-blog__item">
-                <div class="content-blog__item-title">Приёмы в вёрстке, без которых не обходится ни один сайт</div>
-                <div class="content-blog__item-date">22 ноября 2016</div>
-                <div class="content-blog__item-text">
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                <div class="content-blog__item-main">
+                  <div class="content-blog__item-title">Приёмы в вёрстке, без которых не обходится ни один сайт</div>
+                  <div class="content-blog__item-date">22 ноября 2016</div>
+                  <div class="content-blog__item-text">
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                  </div>
                 </div>
               </li>
               <li class="content-blog__item">
-                <div class="content-blog__item-title">Самый необходимый набор Gulp плагинов</div>
-                <div class="content-blog__item-date">22 ноября 2016</div>
-                <div class="content-blog__item-text">
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-                  Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                <div class="content-blog__item-main">
+                  <div class="content-blog__item-title">Самый необходимый набор Gulp плагинов</div>
+                  <div class="content-blog__item-date">22 ноября 2016</div>
+                  <div class="content-blog__item-text">
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                    Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
+                  </div>
                 </div>
               </li>
             </ul>
@@ -104,11 +133,13 @@
           </ul>
         </div>
         <div class="footer-up__right">
-          <ul class="socials__list socials__list_border_circle">
-            <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-            <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-            <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-          </ul>
+          <div class="socials socials_place_footer">
+            <ul class="socials__list socials__list_border_circle">
+              <li class="socials__item"><a class="socials__link" href="https://vk.com" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+              <li class="socials__item"><a class="socials__link" href="https://github.com" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+              <li class="socials__item"><a class="socials__link" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="footer-down">
