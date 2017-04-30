@@ -6,20 +6,21 @@ block variables
 block content
 	.wrapper_with_footer
 		.header
-			.header_colourful
+			.header__input
 				.pages__container
 					.header-up
 						.header-up__left
-							ul.socials__list.socials__list_color_white
-								li.socials__item
-									a.socials__link(href='https://vk.com', target='_blank')
-										i.fa.fa-vk(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://github.com', target='_blank')
-										i.fa.fa-github-alt(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://linkedin.com', target='_blank')
-										i.fa.fa-linkedin(aria-hidden='true')
+							.socials.socials_place_header
+								ul.socials__list.socials__list_color_white
+									li.socials__item
+										a.socials__link(href='https://vk.com', target='_blank')
+											i.fa.fa-vk(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://github.com', target='_blank')
+											i.fa.fa-github-alt(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://linkedin.com', target='_blank')
+											i.fa.fa-linkedin(aria-hidden='true')
 						.header-up__right
 							.burger-menu
 								a.burger-menu__link(href='#')
@@ -35,14 +36,19 @@ block content
 							.user__name.user__name_color_white Владимир Астахов
 							.user__description.user__description_color_white Личный сайт веб-разработчика
 		section.section.about
+			svg(
+				viewbox="0 0 1000 90"
+				preserveAspectRatio="none"
+				class="triangle triangle_fill_white about__triangles about__triangles_device_tablets")
+				polygon(points="0,0 0,90 500.8,90")
+				polygon(points="1000,90 500,90 1000,0")
 			.about__left
 				svg(
 					viewbox="0 0 1000 180"
 					preserveAspectRatio="none"
 					class="triangle triangle_fill_white about__triangles")
 					polygon(points="0,0 0,180 1000,180")
-				.about__left-title
-					+title('Обо мне', 'about-header.png', 'about__section-title')
+				+title('Обо мне', 'about-header.png', 'about__section-title')
 				.user-about.about__section-description_inline
 					.user-about__photo
 						img.user-about__pic(src='assets/img/about.jpg', alt='Ava-big')
@@ -63,6 +69,20 @@ block content
 							+title__small('Чем я могу быть вам полезен', 'about__section-title_small')
 						.about-user-info__text
 							p Больше всего меня привлекает Frontend разработка, но я также знаком и могу решать сложные задачи на Backend. Но давайте по порядку.
+						ul.skills
+							each skill in skills
+								each skillsArray, skillName in skill
+									li.skills__item
+										.skill-section
+											.skill-section__title= skillName
+											ul.skill-section__list
+												each skillTitle in skillsArray
+													li.skills-section__item
+														.skill
+															svg.skill__circle(viewbox='0 0 110 110')
+																circle.skill__circle-first(r='45', cx='50%', cy='50%')
+																circle.skill__circle-second(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+															.skill__name= skillTitle
 		section.section.map.last
 			.map__marker
 				img(src='assets/img/map_marker.svg').map__marker-pic
@@ -82,7 +102,8 @@ block content
 						li.contacts-socials__item
 							i.fa.fa-map-marker.contacts-socials__icon(aria-hidden='true')
 							.contacts-socials__text г.Новосибирск, ул. Инская, д. 5
-			footer.footer_margin_top
+			img.map__picture(src='assets/img/map.jpg')
+			footer.footer.footer_margin_top
 				.footer-up
 					.footer-up__left
 						ul.footer-up__list
@@ -99,16 +120,17 @@ block content
 								a.footer-up__link(href="#")
 									|Авторизация
 					.footer-up__right
-						ul.socials__list.socials__list_border_circle
-							li.socials__item
-								a.socials__link(href='https://vk.com', target='_blank')
-									i.fa.fa-vk(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://github.com', target='_blank')
-									i.fa.fa-github-alt(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://linkedin.com', target='_blank')
-									i.fa.fa-linkedin(aria-hidden='true')
+						.socials.socials_place_footer
+							ul.socials__list.socials__list_border_circle
+								li.socials__item
+									a.socials__link(href='https://vk.com', target='_blank')
+										i.fa.fa-vk(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://github.com', target='_blank')
+										i.fa.fa-github-alt(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://linkedin.com', target='_blank')
+										i.fa.fa-linkedin(aria-hidden='true')
 				.footer-down
 					.footer-down__left
 						.footer__description

@@ -1,31 +1,30 @@
 .header{
 	background: $background;
 	background-size: cover;
-	background-position: 0 -55px;
+	background-position: center top;
 	height: 600px;
   	overflow: hidden;
   	position: relative;
   	@extend %clearfix;
 
-	&_colourful{
+	&__input{
 		background-color: rgba(#016672, .3);
-		height: 600px;
+		height: 100%;
 	}
 
 	&__blog{
-		background-position: 0 -155px;
 		height: 400px;
 	}
 }
 
 .blog__container{
-	width: 1150px;
+	max-width: 1150px;
 	margin: 0 auto;
-	padding-left: 10px;
+	padding: 0 10px;
 }
 
 .pages__container{
-	width: 1800px;
+	max-width: 1800px;
 	margin: 0 auto;
 	padding: 0 30px;
 }
@@ -43,20 +42,21 @@
 	float: left;
 }
 
-.socials__list_color_white{
+.socials_place_header{
 	margin-bottom: 20px;
 
+	.socials__item{
+		&:not(:first-child){
+			padding-left: 25px;
+		}
+	}
+}
+.socials__list_color_white{
 	.socials__link{
 	color: rgba(#fff, .55);
 	font-size: 28px;
 		&:hover{
 			color: #fff;
-		}
-	}
-
-	.socials__item{
-		&:not(:first-child){
-			padding-left: 25px;
 		}
 	}
 }
@@ -89,6 +89,14 @@
 
 .header__title-img{
   	display: inline-block;
+
+  	@include laptop{
+  		width: 95%;
+  	}
+
+  	@include tablets{
+  		display: none;
+  	}
 }
 
 .header__user{

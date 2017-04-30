@@ -6,20 +6,21 @@ block variables
 block content
 	.wrapper_with_footer
 		.header#document
-			.header_colourful
+			.header__input
 				.pages__container
 					.header-up
 						.header-up__left
-							ul.socials__list.socials__list_color_white
-								li.socials__item
-									a.socials__link(href='https://vk.com', target='_blank')
-										i.fa.fa-vk(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://github.com', target='_blank')
-										i.fa.fa-github-alt(aria-hidden='true')
-								li.socials__item
-									a.socials__link(href='https://linkedin.com', target='_blank')
-										i.fa.fa-linkedin(aria-hidden='true')
+							.socials.socials_place_header
+								ul.socials__list.socials__list_color_white
+									li.socials__item
+										a.socials__link(href='https://vk.com', target='_blank')
+											i.fa.fa-vk(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://github.com', target='_blank')
+											i.fa.fa-github-alt(aria-hidden='true')
+									li.socials__item
+										a.socials__link(href='https://linkedin.com', target='_blank')
+											i.fa.fa-linkedin(aria-hidden='true')
 						.header-up__right
 							.burger-menu
 								a.burger-menu__link(href='#')
@@ -34,7 +35,7 @@ block content
 								img.user__pic(src='assets/img/ava.jpg', alt='Ava')
 							.user__name.user__name_color_white Владимир Астахов
 							.user__description.user__description_color_white Личный сайт веб-разработчика
-		section.section.works
+		section.section.works.slider
 			+title('Мои работы', 'works-header.png', 'works__section-title')
 			svg(
 				viewbox="0 0 1000 90"
@@ -48,24 +49,25 @@ block content
 						ul.works__list
 							li.works__item
 								+title__small('Сайт школы онлайн образования', 'works__section-title_small')
-								.works__technologies HTML, CSS, JavaScript
+								.workds__techologies
+									.works__technologies-desc HTML, CSS, JavaScript
 								.works__link
 									a.works__button(href='#')
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
-				.works__right
-					.works__slider
-						.works__slider_active
-							img(src='assets/img/1.png').works__slider-pic_active
-						ul.slider__list
-							li.slider__item(style='background-image: url("assets/img/work-1.png")')
-								a.slider__link(href='#').slider__link_color_lighten
-									.slider__button
-										i.fa.fa-chevron-down(aria-hidden='true')
-							li.slider__item(style='background-image: url("assets/img/work-2.png")')
-								a.slider__link(href='#')
-									.slider__button
-										i.fa.fa-chevron-up(aria-hidden='true')
+				.slider__active
+					img(src='assets/img/1.png').slider__active-pic
+				ul.slider__list
+					li.slider__item
+						img.slider__item-pic(src='assets/img/work-1.png')
+						a.slider__link(href='#').slider__link_color_lighten
+							.slider__button
+								i.fa.fa-chevron-down(aria-hidden='true')
+					li.slider__item
+						img.slider__item-pic(src='assets/img/work-2.png')
+						a.slider__link(href='#')
+							.slider__button
+								i.fa.fa-chevron-up(aria-hidden='true')
 		+title('Что обо мне говорят', 'about-header.png', 'reviews-title')
 		section.section.last.reviews
 			a(href="#document").up-arrow
@@ -93,7 +95,7 @@ block content
 								.reviews__item-person-block
 									.reviews__item-person-title Сабанцев Владимир
 									.reviews__item-person-role Преподаватель
-				.contacts.information.write-me
+				.contacts.write-me
 					.write-me_colourful
 						+title__small('Связаться со мной', 'about__section-title_small')
 						form.reviews__form(method="POST")
@@ -120,16 +122,17 @@ block content
 								a.footer-up__link(href="#")
 									|Авторизация
 					.footer-up__right
-						ul.socials__list.socials__list_border_circle
-							li.socials__item
-								a.socials__link(href='https://vk.com', target='_blank')
-									i.fa.fa-vk(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://github.com', target='_blank')
-									i.fa.fa-github-alt(aria-hidden='true')
-							li.socials__item
-								a.socials__link(href='https://linkedin.com', target='_blank')
-									i.fa.fa-linkedin(aria-hidden='true')
+						.socials.socials_place_footer
+							ul.socials__list.socials__list_border_circle
+								li.socials__item
+									a.socials__link(href='https://vk.com', target='_blank')
+										i.fa.fa-vk(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://github.com', target='_blank')
+										i.fa.fa-github-alt(aria-hidden='true')
+								li.socials__item
+									a.socials__link(href='https://linkedin.com', target='_blank')
+										i.fa.fa-linkedin(aria-hidden='true')
 				.footer-down
 					.footer-down__left
 						.footer__description
