@@ -85,11 +85,6 @@ a{
 	min-height: 400px;
 }
 
-.wrapper_background{
-	background: $background;
-	background-size: cover;
-}
-
 .wrapper_background::before{
 	content: "";
     height: 100%;
