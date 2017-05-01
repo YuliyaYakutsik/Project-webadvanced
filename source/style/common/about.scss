@@ -233,6 +233,19 @@
   }
 }
 
+.title__small_fullscreen_menu{
+  color: rgba(#fff, .7);
+  font-size: 54px;
+  transition: $transition;
+
+  &:after, &:before {
+    top: 63px;
+    background: rgba(#fff, .7);
+    transition: $transition;
+  }
+
+}
+
 .user-about__text{
   font-family: 'robotoregular', Arial, sans-serif;
   font-size: 16px;

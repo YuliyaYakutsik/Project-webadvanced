@@ -5,6 +5,20 @@ block variables
 
 block content
 	.wrapper.wrapper_for_blog
+		.fullscreen-menu
+			ul.fullscreen-menu__list
+				li.fullscreen-menu__item
+					a.fullscreen-menu__link(href='works.html')
+						+title__small('Мои работы', 'title__small_fullscreen_menu')
+				li.fullscreen-menu__item
+					a.fullscreen-menu__link(href='about.html')
+						+title__small('Обо мне', 'title__small_fullscreen_menu')
+				li.fullscreen-menu__item
+					a.fullscreen-menu__link.active(href='blog.html')
+						+title__small('Блог', 'title__small_fullscreen_menu')
+				li.fullscreen-menu__item
+					a.fullscreen-menu__link(href='index.html')
+						+title__small('Авторизация', 'title__small_fullscreen_menu')
 		.header.header__blog
 			.header__input
 				.blog__container
@@ -24,7 +38,7 @@ block content
 						.header-up__right
 							.burger-menu
 								a.burger-menu__link(href='#')
-									i.fa.fa-bars(aria-hidden='true')
+									span.burger-menu__link-center
 					.header__user
 						.user__photo.user__photo_small
 							img.user__pic(src='assets/img/ava.jpg', alt='Ava')
