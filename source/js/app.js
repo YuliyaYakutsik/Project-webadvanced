@@ -38,4 +38,48 @@
 
   myMouseParallax.init();
 
+  var burgerMenu = (function () {
+
+    var menu = $('.fullscreen-menu');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+      $('.burger-menu__link').on('click', _openMenu);
+    };
+
+    var _openMenu = function (e) {
+
+      e.preventDefault ();
+
+      if ($(this).hasClass('active')) {
+
+        $(this).removeClass('active');
+        $('body').css('position','static');
+        menu.slideUp();
+
+      } else {
+
+        $(this).addClass('active');
+        $('body').css('position','fixed');
+        menu.slideDown();
+
+      }
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  burgerMenu.init();
+
 })();
