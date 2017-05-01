@@ -24,14 +24,26 @@
 .content__index{
 	background-color: rgba(252,252,252,0.85);
 	padding-bottom: 35px;
+
+	@include album{
+      	padding-bottom: 10px;
+    }
 }
 
 .user{
 	margin-bottom: 25px;
+
+	@include album{
+      	margin-bottom: 10px;
+    }
 }
 
 .user__author{
 	padding: 40px 66px 0;
+
+	@include album{
+      	padding-top: 5px;
+    }
 }
 
 .user__photo{
@@ -110,6 +122,10 @@
 	color: #fff;
 	font-size: 16px;
 	transition: $transition;
+
+	@include album{
+      padding: 6px 10px;
+    }
 }
 
 .nav__link:hover{
@@ -129,6 +145,11 @@
     	right: 50%;
     	transform: translateX(50%);
   	}
+
+  	@include album{
+      	top: 10px;
+      	right: 10px;
+    }
 }
 
 .authorization__link{
@@ -138,6 +159,10 @@
 	border: 1px solid #fff;
 	border-radius: 5px;
 	transition: $transition;
+
+	@include album{
+      	padding: 10px 8px;
+    }
 }
 
 .authorization__link:hover{
@@ -155,8 +180,12 @@
 }
 
 .copyright{
-	padding-bottom: 20px;
+	padding-bottom: 16px;
 	font-family: 'roboto_light', Arial, sans-serif;
 	font-size: 16px;
 	color: rgba(242, 243, 244, .8);
+
+	@include album{
+      	padding-bottom: 10px;
+    }
 }

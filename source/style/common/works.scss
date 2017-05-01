@@ -2,7 +2,7 @@
   @extend %clearfix;
   color: $main-font-color;
   position: relative;
-
+  background: $bg;
 }
 
 .works__triangles {
@@ -23,7 +23,7 @@
 
   @include tablets{
     flex-wrap: nowrap;
-    height: 120vh;
+    min-height: 885px;
   }
 }
 
@@ -73,14 +73,8 @@
 
 .slider__active-pic{
   max-height: 95%;
-  width: 95%;
-  max-width: 725px;
-
-  @include tablets{
-    max-height: 90%;
-    width: auto;
-    max-width: 95%;
-  }
+  width: auto;
+  max-width: 95%;
 }
 
 .works__link{
@@ -183,7 +177,7 @@
   color: rgba(#fff, .7);
   transition: $transition;
 
-  @include phones{
+  @include tabletssmall{
     font-size: 64px;
     color: rgba(#fff, 1);
   }
@@ -250,6 +244,11 @@
   top: -55px;
   color: rgba(#455a64, .2);
   font-size: 36px;
+
+  @include tabletssmall{
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .reviews__item-text{
@@ -270,6 +269,10 @@
   height: 75px;
   overflow: hidden;
   border-radius: 50%;
+}
+
+.reviews-person__photo-pic{
+  width:100%;
 }
 
 .reviews__item-person-block{

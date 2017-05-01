@@ -235,13 +235,23 @@
 
 .title__small_fullscreen_menu{
   color: rgba(#fff, .7);
-  font-size: 54px;
+  font-size: 50px;
+  padding: 22px 80px;
   transition: $transition;
 
+  @include album{
+    padding: 5px 80px;
+    font-size: 42px;
+  }
+
   &:after, &:before {
-    top: 63px;
+    top: 56px;
     background: rgba(#fff, .7);
     transition: $transition;
+
+    @include album{
+    top: 31px;
+  }
   }
 
 }

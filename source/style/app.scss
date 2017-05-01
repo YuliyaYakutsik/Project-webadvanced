@@ -31,6 +31,12 @@ $bg : rgb(250, 248, 240);
 	}
 }
 
+@mixin album(){
+	@media screen and (orientation:landscape) and (max-width:768px){
+		@content;
+	}
+}
+
 %clearfix{
 	&:after, &:before{
 		content:"";
