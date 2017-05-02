@@ -82,4 +82,43 @@
 
   burgerMenu.init();
 
+  var blurForm = (function () {
+
+    var wrapper = $('.write-me__blur-wrapper'),
+        wrapperTop = $('.write-me'),
+        form = $('.write-me__blur');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+      $(window).on('resize', _setBlur);
+      $(document).ready(_setBlur);
+    };
+
+    var _setBlur = function () {
+
+      var imgWidth = $('.reviews__background').width(),
+          posLeft = - wrapper.position().left,
+          posTop = - wrapperTop.position().top;
+
+      form.css({
+        'background-size': imgWidth + 'px'+ ' ' + 'auto',
+        'backgroundPosition': posLeft + 'px' + ' ' + posTop + 'px'
+      });
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  blurForm.init();
 })();

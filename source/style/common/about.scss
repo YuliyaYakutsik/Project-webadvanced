@@ -13,7 +13,6 @@
 .about__left, .about__right {
   position: relative;
   padding-top: 20px;
-  flex-basis: 50%;
   min-width: 50%;
 }
 
@@ -180,7 +179,6 @@
 
 .user-about__pic{
   width: 100%;
-  height: 100%;
   display: block;
 }
 
@@ -313,6 +311,15 @@
 
 .skill{
   position: relative;
+  cursor: default;
+
+  &:hover{
+
+    .skill__circle-second{
+      stroke-dasharray: 241 282.6;
+    }
+
+  }
 }
 
 .skill__circle{
@@ -337,7 +344,9 @@
 
 .skill__circle-second{
   stroke: #00bea4;
+  stroke-linecap: round;
   stroke-dasharray: 141.3 282.6;
+  transition: $transition;
 }
 
 .last{

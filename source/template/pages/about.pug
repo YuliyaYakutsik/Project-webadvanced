@@ -2,6 +2,7 @@ extends ../_template
 
 block variables
 	- var title = 'About page'
+	script(async,defer,src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU&callback=initMap')
 
 block content
 	.wrapper_with_footer
@@ -44,7 +45,7 @@ block content
 				.header-without-triangles
 					.header__title
 						img(src="assets/img/portfolio-header.png", alt="").header__title-img
-						.header__user
+						.user.user_position_header
 							.user__photo.user__photo_small
 								img.user__pic(src='assets/img/ava.jpg', alt='Ava')
 							.user__name.user__name_color_white Владимир Астахов
@@ -97,7 +98,7 @@ block content
 																circle.skill__circle-first(r='45', cx='50%', cy='50%')
 																circle.skill__circle-second(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
 															.skill__name= skillTitle
-		section.section.map.last
+		section.section.map.last#map
 			.map__marker
 				img(src='assets/img/map_marker.svg').map__marker-pic
 			.contacts.information
