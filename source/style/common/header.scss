@@ -8,6 +8,13 @@
     display: none;
 }
 
+.fullscreen-menu__list{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .fullscreen-menu__link{
 	display: block;
 
@@ -186,7 +193,7 @@
   	}
 }
 
-.header__user{
+.user_position_header{
 	position: absolute;
 	top: 50%;
 	left: 50%;

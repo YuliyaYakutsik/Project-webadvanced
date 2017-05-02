@@ -48,7 +48,7 @@
           </div><a class="down-arrow" href="#"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
           <div class="header-without-triangles">
             <div class="header__title"><img class="header__title-img" src="assets/img/portfolio-header.png" alt="">
-              <div class="header__user">
+              <div class="user user_position_header">
                 <div class="user__photo user__photo_small"><img class="user__pic" src="assets/img/ava.jpg" alt="Ava"></div>
                 <div class="user__name user__name_color_white">Владимир Астахов</div>
                 <div class="user__description user__description_color_white">Личный сайт веб-разработчика</div>
@@ -89,35 +89,37 @@
       </section>
       <div class="title reviews-title" style="background-image: url('assets/img/about-header.png');">Что обо мне говорят</div>
       <section class="section last reviews"><a class="up-arrow" href="#document"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-        <div class="reviews_colourful">
-          <div class="reviews__block">
-            <ul class="reviews__list">
-              <li class="reviews__item"><i class="fa fa-quote-left reviews__item-quote" aria-hidden="true"></i>
-                <div class="reviews__item-text">
-                   Этот парень проходил обучение веб-разработке не где-то, а в Loftschool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</div>
-                <div class="reviews__item-person">
-                  <div class="reviews-person__photo"><img class="reviews-person__photo-pic" src="assets/img/teacher.jpg"></div>
-                  <div class="reviews__item-person-block">
-                    <div class="reviews__item-person-title">Ковальчук Дмитрий</div>
-                    <div class="reviews__item-person-role">Основатель Loftchool</div>
-                  </div>
+        <div class="reviews__background"><img class="reviews__background-pic" src="assets/img/reviews.jpg"></div>
+        <div class="reviews__block">
+          <ul class="reviews__list">
+            <li class="reviews__item"><i class="fa fa-quote-left reviews__item-quote" aria-hidden="true"></i>
+              <div class="reviews__item-text">
+                 Этот парень проходил обучение веб-разработке не где-то, а в Loftschool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</div>
+              <div class="reviews__item-person">
+                <div class="reviews-person__photo"><img class="reviews-person__photo-pic" src="assets/img/teacher.jpg"></div>
+                <div class="reviews__item-person-block">
+                  <div class="reviews__item-person-title">Ковальчук Дмитрий</div>
+                  <div class="reviews__item-person-role">Основатель Loftchool</div>
                 </div>
-              </li>
-              <li class="reviews__item"><i class="fa fa-quote-left reviews__item-quote" aria-hidden="true"></i>
-                <div class="reviews__item-text">
-                   Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!</div>
-                <div class="reviews__item-person">
-                  <div class="reviews-person__photo"><img class="reviews-person__photo-pic" src="assets/img/teacher2.jpg"></div>
-                  <div class="reviews__item-person-block">
-                    <div class="reviews__item-person-title">Сабанцев Владимир</div>
-                    <div class="reviews__item-person-role">Преподаватель</div>
-                  </div>
+              </div>
+            </li>
+            <li class="reviews__item"><i class="fa fa-quote-left reviews__item-quote" aria-hidden="true"></i>
+              <div class="reviews__item-text">
+                 Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!</div>
+              <div class="reviews__item-person">
+                <div class="reviews-person__photo"><img class="reviews-person__photo-pic" src="assets/img/teacher2.jpg"></div>
+                <div class="reviews__item-person-block">
+                  <div class="reviews__item-person-title">Сабанцев Владимир</div>
+                  <div class="reviews__item-person-role">Преподаватель</div>
                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="contacts write-me">
-            <div class="write-me_colourful">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="write-me">
+          <div class="write-me__blur-wrapper">
+            <div class="write-me__blur"></div>
+            <div class="write-me__form-wrapper">
               <div class="title__small about__section-title_small">Связаться со мной</div>
               <form class="reviews__form" method="POST">
                 <div class="reviews__form-inputs">
@@ -125,8 +127,24 @@
                   <input class="reviews__form-input reviews__form-element" name="email" type="email" placeholder="Email">
                   <textarea class="reviews__form-textarea reviews__form-element" name="textarea" placeholder="Ваше сообщение"></textarea>
                 </div>
-                <input class="reviews__form-button" name="" type="submit" value="Отправить">
-                <input class="reviews__form-button reviews__form-button-reset" name="" type="reset" value="Очистить">
+                <div class="reviews__form-buttons">
+                  <input class="reviews__form-button" name="" type="submit" value="Отправить">
+                  <input class="reviews__form-button reviews__form-button-reset" name="" type="reset" value="Очистить">
+                </div>
+              </form>
+            </div>
+            <div class="write-me__form-wrapper write-me__form-wrapper_none">
+              <div class="title__small about__section-title_small">Связаться со мной</div>
+              <form class="reviews__form" method="POST">
+                <div class="reviews__form-inputs">
+                  <input class="reviews__form-input reviews__form-element" name="name" type="text" placeholder="Имя">
+                  <input class="reviews__form-input reviews__form-element" name="email" type="email" placeholder="Email">
+                  <textarea class="reviews__form-textarea reviews__form-element" name="textarea" placeholder="Ваше сообщение"></textarea>
+                </div>
+                <div class="reviews__form-buttons">
+                  <input class="reviews__form-button" name="" type="submit" value="Отправить">
+                  <input class="reviews__form-button reviews__form-button-reset" name="" type="reset" value="Очистить">
+                </div>
               </form>
             </div>
           </div>
