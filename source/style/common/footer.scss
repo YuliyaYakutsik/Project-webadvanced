@@ -3,6 +3,8 @@
 	margin-top: -$footer;
 	background: rgba(#373e42, .85);
 	text-align: center;
+	display: flex;
+    flex-direction: column;
 
 	@include tablets{
     	height: $footer_tablets;
@@ -17,45 +19,39 @@
     background: rgba(#373e42, .85);
     left: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
 
     @include tablets{
-    	height: 230px;
+    	height: $footer_tablets;
     }
 }
 
 .footer-up{
 	@extend %clearfix;
-	border-bottom: 1px solid rgba(#ffffff, .1);
-	color: #fff;
 	padding: 5px 20px;
-	position: relative;
+	display: flex;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    justify-content: flex-start;
+
+    @include tablets{
+		flex-direction: column;
+	}
 
 	&__left{
-		float: left;
-		width: 50%;
 		text-align: left;
 
-		@include laptop{
-    		width: 70%;
-  		}
-
   		@include tablets{
-    		float: none;
-    		width: auto;
     		text-align: center;
   		}
 	}
 
 	&__right{
-		position: absolute;
-    	top: 50%;
-    	transform: translateY(-45%);
-    	right: 20px;
+		margin-left: auto;
 
     	@include tablets{
-    		position: static;
-    		top: 0;
-    		transform: translateY(0);
+    		margin-left: 0;
   		}
 	}
 
@@ -115,44 +111,26 @@
 	padding: 5px 20px;
 	color: rgba(242, 243, 244, 0.8);
 	font-family: 'robotolight', Arial, sans-serif;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-	&__left{
-		display: inline-block;
-		width: 49.8%;
-		vertical-align: middle;
-
-		@include laptop{
-    		width: 58%;
-    		font-size: 14px;
-    	}
-
-    	@include tablets{
-    		display: block;
-    		width: auto;
-    		margin-bottom: 10px;
-    	}
+	@include tablets{
+		flex-direction: column;
+		justify-content: space-around;
 	}
 
 	&__right{
-		display: inline-block;
-		width: 49.8%;
-		vertical-align: middle;
 		text-align: right;
 
-		@include laptop{
-    		width: 41%;
-    	}
-
     	@include tablets{
-    		display: block;
     		text-align: center;
-    		width: auto;
     	}
 	}
 }
 
 .footer__description{
-	max-width: 450px;
 	color: rgb(125, 130, 132);
 	text-align: left;
 
@@ -164,9 +142,5 @@
 
 .copyright_position_left{
 	padding: 0;
-	color: rgb(133, 148, 148);
-
-	@include laptop{
-    	font-size: 14px;
-    }    
+	color: rgb(133, 148, 148); 
 }

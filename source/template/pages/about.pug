@@ -2,6 +2,8 @@ extends ../_template
 
 block variables
 	- var title = 'About page'
+
+block scripts
 	script(async,defer,src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU&callback=initMap')
 
 block content
@@ -98,9 +100,7 @@ block content
 																circle.skill__circle-first(r='45', cx='50%', cy='50%')
 																circle.skill__circle-second(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
 															.skill__name= skillTitle
-		section.section.map.last#map
-			.map__marker
-				img(src='assets/img/map_marker.svg').map__marker-pic
+		section.section.map.last
 			.contacts.information
 				+title__small('Контакты', 'about__section-title_small')
 				.contacts-socials
@@ -117,7 +117,7 @@ block content
 						li.contacts-socials__item
 							i.fa.fa-map-marker.contacts-socials__icon(aria-hidden='true')
 							.contacts-socials__text г.Новосибирск, ул. Инская, д. 5
-			img.map__picture(src='assets/img/map.jpg')
+			#map
 			footer.footer.footer_margin_top
 				.footer-up
 					.footer-up__left
