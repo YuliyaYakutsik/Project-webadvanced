@@ -358,22 +358,8 @@
   position: relative;
 }
 
-.map__marker{
-  position: absolute;
-  top:362px;
-  right: 478px;
-
-  @include laptop{
-    right: 260px;
-  }
-}
-
-.map__marker-pic{
-  width: 30px;
-  height: 40px;
-}
-
-.map__picture{
+#map{
+  width: 100%;
   height: 100%;
 }
 
@@ -387,6 +373,7 @@
   color: rgb(55,62,66);
   min-width: 380px;
   overflow: hidden;
+  z-index: 2;
 
   @include tablets{
     top:40%;

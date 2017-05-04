@@ -1,5 +1,4 @@
-
-<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU&amp;callback=initMap"></script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -12,7 +11,8 @@
     <link rel="stylesheet" href="assets/css/foundation.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <script src="assets/js/foundation.js" defer></script>
-    <script src="assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <script src="assets/js/app.js" defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU&amp;callback=initMap"></script><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
@@ -217,8 +217,7 @@
           </div>
         </div>
       </section>
-      <section class="section map last" id="map">
-        <div class="map__marker"><img class="map__marker-pic" src="assets/img/map_marker.svg"></div>
+      <section class="section map last">
         <div class="contacts information">
           <div class="title__small about__section-title_small">Контакты</div>
           <div class="contacts-socials">
@@ -237,7 +236,8 @@
               </li>
             </ul>
           </div>
-        </div><img class="map__picture" src="assets/img/map.jpg">
+        </div>
+        <div id="map"></div>
         <footer class="footer footer_margin_top">
           <div class="footer-up">
             <div class="footer-up__left">
