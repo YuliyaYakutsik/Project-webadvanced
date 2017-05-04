@@ -312,6 +312,7 @@
 
 .write-me__form-wrapper{
   position: absolute;
+  z-index: 5;
 
   &_none{
     position: static;
@@ -352,6 +353,7 @@
   border: none;
   transition: $transition;
   cursor: pointer;
+  outline: none;
 
   &:hover{
     background: #009688;
