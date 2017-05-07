@@ -322,12 +322,15 @@
 
 .reviews__form-inputs{
   padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.reviews__form-input{
+  margin-bottom: 20px;
 }
 
 .reviews__form-element{
   display: block;
-  margin: 0 auto;
-  margin-bottom: 20px;
   width: 100%;
   padding: 8px;
   border-radius: 6px;

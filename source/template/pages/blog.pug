@@ -4,6 +4,11 @@ block variables
 	- var title = 'Blog page'
 
 block content
+	.preloader
+		.preloader__spinner
+			.preloader__animation
+			.preloader__percents
+				|0%
 	.wrapper.wrapper_for_blog
 		.fullscreen-menu
 			ul.fullscreen-menu__list
@@ -27,10 +32,10 @@ block content
 							.socials.socials_place_header
 								ul.socials__list.socials__list_color_white
 									li.socials__item
-										a.socials__link(href='https://vk.com', target='_blank')
+										a.socials__link(href='https://vk.com/julia_yakutik', target='_blank')
 											i.fa.fa-vk(aria-hidden='true')
 									li.socials__item
-										a.socials__link(href='https://github.com', target='_blank')
+										a.socials__link(href='https://github.com/YuliyaYakutsik', target='_blank')
 											i.fa.fa-github-alt(aria-hidden='true')
 									li.socials__item
 										a.socials__link(href='https://linkedin.com', target='_blank')
@@ -131,19 +136,19 @@ block content
 						a.footer-up__link(href="about.html")
 							|Обо мне
 					li.footer-up__item
-						a.footer-up__link(href="blog.html")
+						a.footer-up__link.footer-up__link_active(href="blog.html")
 							|Блог
 					li.footer-up__item
-						a.footer-up__link(href="#")
+						a.footer-up__link(href="index.html")
 							|Авторизация
 			.footer-up__right
 				.socials.socials_place_footer
 					ul.socials__list.socials__list_border_circle
 						li.socials__item
-							a.socials__link(href='https://vk.com', target='_blank')
+							a.socials__link(href='https://vk.com/julia_yakutik', target='_blank')
 								i.fa.fa-vk(aria-hidden='true')
 						li.socials__item
-							a.socials__link(href='https://github.com', target='_blank')
+							a.socials__link(href='https://github.com/YuliyaYakutsik', target='_blank')
 								i.fa.fa-github-alt(aria-hidden='true')
 						li.socials__item
 							a.socials__link(href='https://linkedin.com', target='_blank')
@@ -151,10 +156,10 @@ block content
 		.footer-down
 			.footer-down__left
 				.footer__description
-					|Я веб-разработчик из Минска и этот сайт сделал в рамках обучения в Школе онлайн-образования Loftschool.
+					|Я веб-разработчик из Минска и этот сайт сделала в рамках обучения в Школе онлайн-образования Loftschool.
 			.footer-down__right
 				.copyright.copyright_position_left
 					i.fa.fa-copyright(aria-hidden='true')
-					|  Владимир Астахов | Создано с любовью в Loftschool | 2017
+					|  Юлия Якутик | Создано с любовью в Loftschool | 2017
 
 
