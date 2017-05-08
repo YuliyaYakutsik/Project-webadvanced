@@ -23,6 +23,13 @@
 	float: left;
 	width: 30%;
 	text-align: right;
+	position: relative;
+
+	&.fixed{
+		position: fixed;
+		padding-top: 30px;
+		top: 0;
+	}
 
 	@include tablets{
     	float: none;
@@ -40,6 +47,7 @@
 
 	    &.active{
 	    	left: 0;
+	    	padding: 0;
 	    }
   	}
 }
@@ -81,11 +89,27 @@
   	}
 }
 
+.nav-blog__item{
+
+	&.active{
+
+		.nav-blog__link{
+			border-right: 3px solid #00bfa5;
+			color:#00bfa5;
+			font-family: 'robotobold', Arial, sans-serif;
+
+			@include tablets{
+	    		color: #fff;
+	  		}
+		}
+	}
+}
+
 .nav-blog__link{
 	display: block;
 	padding:5px 10px;
-	border-right: 3px solid transparent;
 	transition: $transition;
+	border-right: 3px solid transparent;
 	margin-bottom: 5px;
 
 	@include tablets{
@@ -94,16 +118,6 @@
     	margin-bottom: 20px;
     	font-size: 18px;
   	}
-
-	&_active{
-		border-right: 3px solid #00bfa5;
-		color:#00bfa5;
-		font-family: 'robotobold', Arial, sans-serif;
-
-		@include tablets{
-    		color: #fff;
-  		}
-	}
 
 	&:hover{
 		color:#00bfa5;
