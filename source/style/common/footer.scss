@@ -66,6 +66,11 @@
 		display: block;
 		padding: 10px 0;
 		font-size: 15.96px;
+		transition: $transition;
+
+		&:hover, &_active{
+			color: #00bfa5;
+		}
 	}
 }
 

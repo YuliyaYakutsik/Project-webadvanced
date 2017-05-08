@@ -18,6 +18,13 @@
 .fullscreen-menu__link{
 	display: block;
 
+	.title__small_fullscreen_menu{
+    	&:after, &:before{
+	      	opacity: 0;
+	      	transition: $transition;
+	    } 
+    }    
+
 	&:hover, &.active{
 
 		.title__small_fullscreen_menu{
@@ -25,6 +32,7 @@
 
     		&:after, &:before{
 	      		background: #fff;
+	      		opacity: 1;
 	    	} 
     	}    
 	}

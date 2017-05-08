@@ -168,6 +168,261 @@
 
   })();
 
+  var sideBarNavigation = (function () {
+
+    var sideBar = $('.nav-blog');
+    var sideBarList = $('.nav-blog__list');
+    var sideBarWrapper = sideBar.closest('.container');
+    var contentBarItem = sideBarWrapper.find('.content-blog__item');
+    var sideBarItem = sideBarList.find('.nav-blog__link');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+
+      $(window).scroll(_checkSection);
+      $(document).ready(function() {
+
+        sideBarItem.on('click', function(e) {
+          e.preventDefault();          
+          _showSection($(this).attr('href'), true);
+        });
+
+        _showSection(window.location.hash, false);
+
+      });
+      $(window).scroll(_SideBarFixed);
+      $(window).on('resize scroll', _SideBarWidthFixed);
+      
+    };
+
+    var _checkSection = function () {
+
+      contentBarItem.each(function() {
+        var $this = $(this),
+            topEdge = $this.offset().top - 250,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+
+        if (topEdge <= wScroll && bottomEdge >= wScroll) {
+
+          var currentId = $this.data('section');
+          var reqLink = sideBarItem.filter('[href="#' + currentId + '"]');
+
+          reqLink.closest('.nav-blog__item').addClass('active').siblings().removeClass('active');
+
+          window.location.hash = currentId;
+
+        }
+
+      });
+
+    };
+
+    function _showSection (section, isAnimate) {
+  
+      var direction = section.replace(/#/, '');
+      var reqSection = contentBarItem.filter('[data-section="' + direction + '"]');
+      var reqSectionPos = reqSection.offset().top;
+
+      if (isAnimate) {
+        $('body, html').animate({scrollTop: reqSectionPos}, 500);
+      } else {
+        $('body, html').scrollTop(reqSectionPos);
+      }
+    }
+
+    var _SideBarFixed = function () {
+
+      var topEdge = sideBarWrapper.offset().top - 30,
+          leftEdge = sideBarList.position().left,
+          wScroll = $(document).scrollTop();
+
+      if (topEdge <= wScroll) {
+
+        sideBar.addClass('fixed');
+
+      } else {
+
+        sideBar.removeClass('fixed');
+        
+      }
+
+    };
+
+    var _SideBarWidthFixed = function () {
+
+      var OSName = "Unknown OS";
+        if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
+        else if (navigator.appVersion.indexOf("Mac") != -1) OSName = "MacOS";
+        else if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
+        else if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
+
+      var sideBarWidth = ($(window).width()>=1500)?((1500-40)*0.3+'px'):(OSName=="MacOS" && ($(window).width()<=768))?($(window).width()*0.6+'px'):(OSName!="MacOS" && $(window).width()<=(768-17))?($(window).width()*0.6+'px'):(($(window).width()-40)*0.3+'px');
+
+      sideBar.css('width', sideBarWidth);
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  var flipper = (function () {
+
+    var flipperContainer = $('.flipper');
+    var authorizationLink = $('.authorization__link');
+    var toMain = $('.authorization__form-button_back');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+      authorizationLink.on('click', _flipperStart);
+      $(document).on('click', _flipperEnd);
+      toMain.on('click', _toMain);
+    };
+
+    var _flipperStart = function (e) {
+
+      var $this = $(this);
+      e.preventDefault();
+      flipperContainer.addClass('active');
+      $this.fadeOut(1000);
+
+    };
+
+    var _flipperEnd = function (e) {
+
+      var $this=$(e.target);
+
+      if(!$this.closest(flipperContainer).length && !$this.closest('.authorization').length){
+        flipperContainer.removeClass('active');
+        authorizationLink.fadeIn(1000);
+      }
+
+    };
+
+    var _toMain = function (e) {
+
+      var $this=$(this);
+
+      e.preventDefault();
+      flipperContainer.removeClass('active');
+      authorizationLink.fadeIn(1000);
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  var preloader = (function () {
+
+    var preloader = $('.preloader');
+    var percentsTotal = 0;
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+      $(document).ready(_preloaderStart);
+    };
+
+    var _preloaderStart = function () {
+      var myImages = imgPath.toArray();
+
+      loadImages(myImages);
+    };
+
+    var imgPath = $('*').map(function(index, elem) {
+        
+      var background = $(elem).css('background-image'),
+          img = $(elem).is('img'),
+          path = '';
+
+      if (background != 'none') {
+
+        path = background.replace('url("', '').replace('")', '');
+
+      }
+
+      if (img) {
+
+        path = $(elem).attr('src');
+
+      }
+
+      if (path) {
+        return path;
+      }
+
+    });
+
+    var setPercents = function (total, current) {
+
+      var percents = Math.ceil(current/total*100);
+
+      $('.preloader__percents').text(percents + '%');
+
+      if (percents >=100) {
+        setTimeout(function(){
+          preloader.fadeOut()
+        }, 500);
+      }
+
+    };
+
+    var loadImages = function (images) {
+      if (!images.length) {
+        preloader.fadeOut();
+      }
+
+      images.forEach( function(element, index) {
+        var fakeImage = $('<img>', {
+          attr: {
+            src: element
+          }
+
+        });
+
+        fakeImage.on('load error', function() {
+
+          percentsTotal++;
+          setPercents(images.length, percentsTotal);
+
+        });
+
+      });
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
   //вызываем при условии
   if($('.parallax').length){
     myMouseParallax.init();
@@ -182,7 +437,16 @@
   }
 
   if($('.nav-blog').length){
-    sideBarBlog.init();  
+    sideBarBlog.init();
+    sideBarNavigation.init();  
+  }
+
+  if($('.preloader').length){
+    preloader.init();  
+  }
+
+  if($('.flipper').length){
+    flipper.init();  
   }
 
 })();
@@ -234,10 +498,11 @@ function initMap() {
   ];
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 53.912838, lng: 27.569431},
+    center: {lat: 53.912838, lng: 27.566431},
     scrollwheel: false,
     styles:styleArray,
-    zoom: 15
+    zoom: 15,
+    disableDefaultUI:true
   });
 
   var marker = new google.maps.Marker({
@@ -250,6 +515,3 @@ function initMap() {
     icon: 'assets/img/map_marker_large.png'
   });
 }
-
-  
-
