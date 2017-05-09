@@ -85,12 +85,26 @@
             </div>
           </div>
           <div class="slider__active"><img class="slider__active-pic" src="assets/img/1.png"></div>
-          <ul class="slider__list">
-            <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-1.png"><a class="slider__link slider__link_color_lighten" href="#">
-                <div class="slider__button"><i class="fa fa-chevron-down" aria-hidden="true"></i></div></a></li>
-            <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-2.png"><a class="slider__link" href="#">
-                <div class="slider__button"><i class="fa fa-chevron-up" aria-hidden="true"></i></div></a></li>
-          </ul>
+          <div class="slider__other-slides">
+            <div class="slider__display slider__display_first">
+              <ul class="slider__list">
+                <li class="slider__item active"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+              </ul><a class="slider__link slider__link_color_lighten" href="#">
+                <div class="slider__button"><i class="fa fa-chevron-down" aria-hidden="true"></i></div></a>
+            </div>
+            <div class="slider__display slider__display_opposite">
+              <ul class="slider__list">
+                <li class="slider__item slider__item_opposite active"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
+                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
+              </ul><a class="slider__link" href="#">
+                <div class="slider__button"><i class="fa fa-chevron-up" aria-hidden="true"></i></div></a>
+            </div>
+          </div>
         </div>
       </section>
       <div class="title reviews-title" style="background-image: url('assets/img/about-header.png');">Что обо мне говорят</div>
@@ -127,11 +141,18 @@
             <div class="write-me__blur"></div>
             <div class="write-me__form-wrapper">
               <div class="title__small about__section-title_small">Связаться со мной</div>
-              <form class="reviews__form" method="POST">
+              <form class="reviews__form" id="reviews__form" method="POST">
+                <div class="reviews-form__messages">
+                  <div class="alert alert-danger" id="emptyFieldsDanger" style="display: none;">
+                     Пожалуйста, заполните все поля в форме! </div>
+                  <div class="alert alert-danger" id="onChecking" style="display: none;">Происходит обработка запроса! Пожалуйста, подождите! </div>
+                  <div id="success" style="display: none;">Ваше сообщение отправлено!</div>
+                  <div id="error" style="display: none;">Извините, произошла ошибка. Пожалуйста, повторите отправку формы!</div>
+                </div>
                 <div class="reviews__form-inputs">
-                  <input class="reviews__form-input reviews__form-element" name="name" type="text" placeholder="Имя">
-                  <input class="reviews__form-input reviews__form-element" name="email" type="email" placeholder="Email">
-                  <textarea class="reviews__form-textarea reviews__form-element" name="textarea" placeholder="Ваше сообщение"></textarea>
+                  <input class="reviews__form-input reviews__form-element" name="name" type="text" id="sendName" placeholder="Имя">
+                  <input class="reviews__form-input reviews__form-element" name="email" type="email" id="sendEmail" placeholder="Email">
+                  <textarea class="reviews__form-textarea reviews__form-element" name="message" id="sendMessage" placeholder="Ваше сообщение"></textarea>
                 </div>
                 <div class="reviews__form-buttons">
                   <input class="reviews__form-button" name="" type="submit" value="Отправить">

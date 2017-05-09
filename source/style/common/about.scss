@@ -229,6 +229,12 @@
   &:before {
     left: $margin;
   }
+
+  &_flipper_back{
+    @include album{
+      padding: 10px 80px;
+    }
+  }
 }
 
 .title__small_fullscreen_menu{

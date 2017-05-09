@@ -423,31 +423,96 @@
 
   })();
 
-  //вызываем при условии
-  if($('.parallax').length){
-    myMouseParallax.init();
-  }
+  var slider = (function () {
 
-  if($('.fullscreen-menu').length){
-    burgerMenu.init();
-  }
+    var counter = 1,
+        duration = 500,
+        inProcess = false;
 
-  if($('.blur').length){
-    blurForm.init();
-  }
+    var init = function () {
 
-  if($('.nav-blog').length){
-    sideBarBlog.init();
-    sideBarNavigation.init();  
-  }
+      _setUpListeners();
 
-  if($('.preloader').length){
-    preloader.init();  
-  }
+    };
 
-  if($('.flipper').length){
-    flipper.init();  
-  }
+    var _setUpListeners = function () {
+      $('.slider__link').on('click', function (e) {
+        e.preventDefault();
+
+        if (!inProcess) {
+          inProcess = true;
+          _showNextSlide($('.slider__display_first'), 'down');
+          _showNextSlide($('.slider__display_opposite'), 'up');
+          counter++;
+        }
+
+      });
+    };
+
+    var _showNextSlide = function (container, direction) {
+
+      var items = container.find('.slider__item'),
+          activeItem = items.filter('.active'),
+          direction = (direction == 'down')? 100 : -100;
+
+      if (counter >= items.length) counter = 0;
+        
+      var reqItem = items.eq(counter);
+
+      activeItem.animate({
+        'top': direction + '%'
+      }, duration);
+
+      reqItem.animate({
+        'top': '0%'
+      }, duration, function(){
+        activeItem.removeClass('active').css('top', direction*(-1) + '%');
+        $(this).addClass('active');
+        inProcess = false;
+      });
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  $(document).ready(function() {
+
+    //вызываем при условии
+    if($('.parallax').length){
+      myMouseParallax.init();
+    }
+
+    if($('.fullscreen-menu').length){
+      burgerMenu.init();
+    }
+
+    if($('.blur').length){
+      blurForm.init();
+    }
+
+    if($('.nav-blog').length){
+      sideBarBlog.init();
+      sideBarNavigation.init();  
+    }
+
+    if($('.preloader').length){
+      preloader.init();  
+    }
+
+    if($('.flipper').length){
+      flipper.init();  
+    }
+
+    if($('.slider').length){
+      slider.init();  
+    }
+  });
 
 })();
 
