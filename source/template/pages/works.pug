@@ -76,14 +76,30 @@ block content
 										.works__button-text Посмотреть сайт
 				.slider__active
 					img(src='assets/img/1.png').slider__active-pic
-				ul.slider__list
-					li.slider__item
-						img.slider__item-pic(src='assets/img/work-1.png')
+				.slider__other-slides
+					.slider__display.slider__display_first
+						ul.slider__list
+							li.slider__item.active
+								img.slider__item-pic(src='assets/img/work-1.png')
+							li.slider__item
+								img.slider__item-pic(src='assets/img/work-2.png')
+							li.slider__item
+								img.slider__item-pic(src='assets/img/work-1.png')
+							li.slider__item
+								img.slider__item-pic(src='assets/img/work-2.png')
 						a.slider__link(href='#').slider__link_color_lighten
-							.slider__button
-								i.fa.fa-chevron-down(aria-hidden='true')
-					li.slider__item
-						img.slider__item-pic(src='assets/img/work-2.png')
+									.slider__button
+										i.fa.fa-chevron-down(aria-hidden='true')
+					.slider__display.slider__display_opposite
+						ul.slider__list
+							li.slider__item.slider__item_opposite.active
+								img.slider__item-pic(src='assets/img/work-2.png')
+							li.slider__item.slider__item_opposite
+								img.slider__item-pic(src='assets/img/work-1.png')
+							li.slider__item.slider__item_opposite
+								img.slider__item-pic(src='assets/img/work-2.png')
+							li.slider__item.slider__item_opposite
+								img.slider__item-pic(src='assets/img/work-1.png')
 						a.slider__link(href='#')
 							.slider__button
 								i.fa.fa-chevron-up(aria-hidden='true')
@@ -120,11 +136,20 @@ block content
 					.write-me__blur
 					.write-me__form-wrapper
 						+title__small('Связаться со мной', 'about__section-title_small')
-						form.reviews__form(method="POST")
+						form.reviews__form#reviews__form(method="POST")
+							.reviews-form__messages
+								#emptyFieldsDanger.alert.alert-danger(style="display: none") 
+									|Пожалуйста, заполните все поля в форме! 
+								#onChecking.alert.alert-danger(style="display: none")
+									|Происходит обработка запроса! Пожалуйста, подождите! 
+								#success(style="display: none")
+									|Ваше сообщение отправлено!
+								#error(style="display: none")
+									|Извините, произошла ошибка. Пожалуйста, повторите отправку формы!
 							.reviews__form-inputs
-								input.reviews__form-input.reviews__form-element(name="name", type="text", placeholder='Имя')
-								input.reviews__form-input.reviews__form-element(name="email", type="email", placeholder='Email')
-								textarea.reviews__form-textarea.reviews__form-element(name="textarea", placeholder='Ваше сообщение')
+								input.reviews__form-input.reviews__form-element(name="name", type="text", id="sendName", placeholder='Имя')
+								input.reviews__form-input.reviews__form-element(name="email", type="email", id="sendEmail", placeholder='Email')
+								textarea.reviews__form-textarea.reviews__form-element(name="message", id="sendMessage", placeholder='Ваше сообщение')
 							.reviews__form-buttons
 								input.reviews__form-button(name="", type="submit", value="Отправить")
 								input.reviews__form-button.reviews__form-button-reset(name="", type="reset" value="Очистить")
