@@ -62,45 +62,69 @@ block content
 				class="triangle triangle_fill_bg works__triangles")
 				polygon(points="0,0 0,90 500.8,90")
 				polygon(points="1000,90 500,90 1000,0")
-			.works__content
+			.works__content.section_to_scroll
 				.works__left
 					.works__sites
 						ul.works__list
 							li.works__item
-								+title__small('Сайт школы онлайн образования', 'works__section-title_small')
+								+title__small('Сайт школы онлайн образования 1', 'works__section-title_small')
+								.workds__techologies
+									.works__technologies-desc HTML, CSS
+								.works__link
+									a.works__button(href='https://loftschool.com/', target=_blank)
+										i.fa.fa-link(aria-hidden='true') 
+										.works__button-text Посмотреть сайт
+							li.works__item.active
+								+title__small('Сайт школы онлайн образования 2', 'works__section-title_small')
 								.workds__techologies
 									.works__technologies-desc HTML, CSS, JavaScript
 								.works__link
-									a.works__button(href='#')
+									a.works__button(href='https://loftschool.com/', target=_blank)
+										i.fa.fa-link(aria-hidden='true') 
+										.works__button-text Посмотреть сайт
+							li.works__item
+								+title__small('Сайт школы онлайн образования 3', 'works__section-title_small')
+								.workds__techologies
+									.works__technologies-desc HTML, CSS, JavaScript, JQuery
+								.works__link
+									a.works__button(href='https://loftschool.com/', target=_blank)
+										i.fa.fa-link(aria-hidden='true') 
+										.works__button-text Посмотреть сайт
+							li.works__item
+								+title__small('Сайт школы онлайн образования 4', 'works__section-title_small')
+								.workds__techologies
+									.works__technologies-desc HTML, CSS, JavaScript, JQuery, PHP
+								.works__link
+									a.works__button(href='https://loftschool.com/', target=_blank)
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 				.slider__active
-					img(src='assets/img/1.png').slider__active-pic
+					img(src='assets/img/work-1.png').slider__active-pic
 				.slider__other-slides
 					.slider__display.slider__display_first
 						ul.slider__list
 							li.slider__item.active
-								img.slider__item-pic(src='assets/img/work-1.png')
-							li.slider__item
-								img.slider__item-pic(src='assets/img/work-2.png')
+								img.slider__item-pic(src='assets/img/1.png')
 							li.slider__item
 								img.slider__item-pic(src='assets/img/work-1.png')
 							li.slider__item
 								img.slider__item-pic(src='assets/img/work-2.png')
-						a.slider__link(href='#').slider__link_color_lighten
+							li.slider__item
+								img.slider__item-pic(src='assets/img/write_me.jpg')
+						a.slider__link.slider__link_down(href='#').slider__link_color_lighten
 									.slider__button
 										i.fa.fa-chevron-down(aria-hidden='true')
 					.slider__display.slider__display_opposite
 						ul.slider__list
-							li.slider__item.slider__item_opposite.active
-								img.slider__item-pic(src='assets/img/work-2.png')
-							li.slider__item.slider__item_opposite
+							li.slider__item
+								img.slider__item-pic(src='assets/img/1.png')
+							li.slider__item
 								img.slider__item-pic(src='assets/img/work-1.png')
-							li.slider__item.slider__item_opposite
+							li.slider__item.active
 								img.slider__item-pic(src='assets/img/work-2.png')
-							li.slider__item.slider__item_opposite
-								img.slider__item-pic(src='assets/img/work-1.png')
-						a.slider__link(href='#')
+							li.slider__item
+								img.slider__item-pic(src='assets/img/write_me.jpg')
+						a.slider__link.slider__link_up(href='#')
 							.slider__button
 								i.fa.fa-chevron-up(aria-hidden='true')
 		+title('Что обо мне говорят', 'about-header.png', 'reviews-title')

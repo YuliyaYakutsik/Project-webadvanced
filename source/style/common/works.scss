@@ -44,6 +44,15 @@
   }
 }
 
+.works__item{
+  display: none;
+  transition: $transition;
+
+  &.active{
+   display: block;
+  }
+}
+
 .works__technologies-desc{
   display: inline-block;
   text-transform: uppercase;
@@ -186,6 +195,7 @@
   &:hover{
     .slider__button{
       color: #fff;
+      font-size: 40px;
     }
   }
 }
