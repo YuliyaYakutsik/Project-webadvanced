@@ -623,6 +623,94 @@
 
   })();
 
+  var writeMe = (function () {
+
+    var form = $('#reviews__form');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+
+      form.on('submit', function (e) {
+        e.preventDefault();
+        _clearMessagesAndInputStyles();
+        _contactMeFormInitialization();
+      });
+
+      $('.reviews__form-button-reset').on('click', function(e) {
+        e.preventDefault();
+        form[0].reset();
+        _clearMessagesAndInputStyles();        
+      });
+
+    };
+
+    var _clearMessagesAndInputStyles = function() {
+
+      $('.reviews-form__messages-alert').slideUp(300);
+      form.find('.reviews__form-element').each(function () {
+          $(this).removeClass('input-alert');
+      });
+
+    };
+
+    var _contactMeFormInitialization = function () {
+
+        var formdata = form.serialize(),
+            sendName = $('#sendName').val(),
+            sendEmail = $('#sendEmail').val(),
+            sendText = $('#sendText').val();
+
+        if (!sendName.trim() || !sendEmail.trim() || !sendText.trim()) {
+
+            $('#emptyFieldsDanger').slideDown(300, function () {
+                _populateAndHighlightEmptyInputs();
+            });
+            return false;
+
+        } else { 
+
+            $('#onChecking').show('fast');
+
+        }
+    };
+
+    var _populateAndHighlightEmptyInputs = function() {
+
+      var emptyInputs = [];
+
+      $('#reviews__form').find('.reviews__form-element').each(function () {
+        if (!$(this).val().trim()) {
+            emptyInputs.push($(this));
+        }
+      });
+
+      console.log(emptyInputs);
+
+      _highlightEmptyInputs(emptyInputs);
+
+    };
+
+    var _highlightEmptyInputs = function(emptyInputs) {
+
+      emptyInputs.forEach(function (entry) {
+          $(entry).addClass('input-alert');
+      });
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
   //вставка отстилизованной GoogleMap
   var initMap = (function () {
 
@@ -735,6 +823,10 @@
 
     if($('.up-arrow').length){
       upArrow.init();  
+    }
+
+    if($('.write-me').length){
+      writeMe.init();  
     }
 
     if($('.map').length){

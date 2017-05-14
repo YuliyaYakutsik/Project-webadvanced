@@ -69,46 +69,70 @@
           <polygon points="0,0 0,90 500.8,90"></polygon>
           <polygon points="1000,90 500,90 1000,0"></polygon>
         </svg>
-        <div class="works__content">
+        <div class="works__content section_to_scroll">
           <div class="works__left">
             <div class="works__sites">
               <ul class="works__list">
                 <li class="works__item">
-                  <div class="title__small works__section-title_small">Сайт школы онлайн образования</div>
+                  <div class="title__small works__section-title_small">Сайт школы онлайн образования 1</div>
+                  <div class="workds__techologies">
+                    <div class="works__technologies-desc">HTML, CSS</div>
+                  </div>
+                  <div class="works__link"><a class="works__button" href="https://loftschool.com/"><i class="fa fa-link" aria-hidden="true"> </i>
+                      <div class="works__button-text">Посмотреть сайт</div></a></div>
+                </li>
+                <li class="works__item active">
+                  <div class="title__small works__section-title_small">Сайт школы онлайн образования 2</div>
                   <div class="workds__techologies">
                     <div class="works__technologies-desc">HTML, CSS, JavaScript</div>
                   </div>
-                  <div class="works__link"><a class="works__button" href="#"><i class="fa fa-link" aria-hidden="true"> </i>
+                  <div class="works__link"><a class="works__button" href="https://loftschool.com/"><i class="fa fa-link" aria-hidden="true"> </i>
+                      <div class="works__button-text">Посмотреть сайт</div></a></div>
+                </li>
+                <li class="works__item">
+                  <div class="title__small works__section-title_small">Сайт школы онлайн образования 3</div>
+                  <div class="workds__techologies">
+                    <div class="works__technologies-desc">HTML, CSS, JavaScript, JQuery</div>
+                  </div>
+                  <div class="works__link"><a class="works__button" href="https://loftschool.com/"><i class="fa fa-link" aria-hidden="true"> </i>
+                      <div class="works__button-text">Посмотреть сайт</div></a></div>
+                </li>
+                <li class="works__item">
+                  <div class="title__small works__section-title_small">Сайт школы онлайн образования 4</div>
+                  <div class="workds__techologies">
+                    <div class="works__technologies-desc">HTML, CSS, JavaScript, JQuery, PHP</div>
+                  </div>
+                  <div class="works__link"><a class="works__button" href="https://loftschool.com/"><i class="fa fa-link" aria-hidden="true"> </i>
                       <div class="works__button-text">Посмотреть сайт</div></a></div>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="slider__active"><img class="slider__active-pic" src="assets/img/1.png"></div>
+          <div class="slider__active"><img class="slider__active-pic" src="assets/img/work-1.png"></div>
           <div class="slider__other-slides">
             <div class="slider__display slider__display_first">
               <ul class="slider__list">
-                <li class="slider__item active"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
-                <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+                <li class="slider__item active"><img class="slider__item-pic" src="assets/img/1.png"></li>
                 <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
                 <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
-              </ul><a class="slider__link slider__link_color_lighten" href="#">
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/write_me.jpg"></li>
+              </ul><a class="slider__link slider__link_down slider__link_color_lighten" href="#">
                 <div class="slider__button"><i class="fa fa-chevron-down" aria-hidden="true"></i></div></a>
             </div>
             <div class="slider__display slider__display_opposite">
               <ul class="slider__list">
-                <li class="slider__item slider__item_opposite active"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
-                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
-                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
-                <li class="slider__item slider__item_opposite"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
-              </ul><a class="slider__link" href="#">
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/1.png"></li>
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/work-1.png"></li>
+                <li class="slider__item active"><img class="slider__item-pic" src="assets/img/work-2.png"></li>
+                <li class="slider__item"><img class="slider__item-pic" src="assets/img/write_me.jpg"></li>
+              </ul><a class="slider__link slider__link_up" href="#">
                 <div class="slider__button"><i class="fa fa-chevron-up" aria-hidden="true"></i></div></a>
             </div>
           </div>
         </div>
       </section>
       <div class="title reviews-title" style="background-image: url('assets/img/about-header.png');">Что обо мне говорят</div>
-      <section class="section last reviews"><a class="up-arrow" href="#document"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+      <section class="section last reviews"><a class="up-arrow" href="#"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
         <div class="reviews__background"><img class="reviews__background-pic" src="assets/img/reviews.jpg"></div>
         <div class="reviews__block">
           <ul class="reviews__list">
@@ -136,23 +160,22 @@
             </li>
           </ul>
         </div>
+        <div class="reviews-form__messages">
+          <div class="reviews-form__messages-element reviews-form__messages-alert" id="emptyFieldsDanger">Пожалуйста, заполните все поля в форме! </div>
+          <div class="reviews-form__messages-element reviews-form__messages-alert" id="onChecking">Происходит обработка запроса! Пожалуйста, подождите! </div>
+          <div class="reviews-form__messages-element" id="success">Ваше сообщение отправлено!</div>
+          <div class="reviews-form__messages-element" id="error">Извините, произошла ошибка. Пожалуйста, повторите отправку формы!</div>
+        </div>
         <div class="write-me blur">
           <div class="write-me__blur-wrapper">
             <div class="write-me__blur"></div>
             <div class="write-me__form-wrapper">
               <div class="title__small about__section-title_small">Связаться со мной</div>
               <form class="reviews__form" id="reviews__form" method="POST">
-                <div class="reviews-form__messages">
-                  <div class="alert alert-danger" id="emptyFieldsDanger" style="display: none;">
-                     Пожалуйста, заполните все поля в форме! </div>
-                  <div class="alert alert-danger" id="onChecking" style="display: none;">Происходит обработка запроса! Пожалуйста, подождите! </div>
-                  <div id="success" style="display: none;">Ваше сообщение отправлено!</div>
-                  <div id="error" style="display: none;">Извините, произошла ошибка. Пожалуйста, повторите отправку формы!</div>
-                </div>
                 <div class="reviews__form-inputs">
                   <input class="reviews__form-input reviews__form-element" name="name" type="text" id="sendName" placeholder="Имя">
                   <input class="reviews__form-input reviews__form-element" name="email" type="email" id="sendEmail" placeholder="Email">
-                  <textarea class="reviews__form-textarea reviews__form-element" name="message" id="sendMessage" placeholder="Ваше сообщение"></textarea>
+                  <textarea class="reviews__form-textarea reviews__form-element" name="text" id="sendText" placeholder="Ваше сообщение"></textarea>
                 </div>
                 <div class="reviews__form-buttons">
                   <input class="reviews__form-button" name="" type="submit" value="Отправить">
