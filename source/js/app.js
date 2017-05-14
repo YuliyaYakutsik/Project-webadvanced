@@ -651,7 +651,7 @@
 
     var _clearMessagesAndInputStyles = function() {
 
-      $('.reviews-form__messages-alert').slideUp(300);
+      $('.reviews-form__messages-element').slideUp(300);
       form.find('.reviews__form-element').each(function () {
           $(this).removeClass('input-alert');
       });
@@ -675,6 +675,20 @@
         } else { 
 
             $('#onChecking').show('fast');
+
+            $.ajax({
+                url: 'assets/php/mail.php',
+                type: 'POST',
+                data: formdata,
+                success: function(data) {
+                    var popup = data.status ? '#success' : '#error';
+
+                    $('#onChecking').hide('fast'); 
+                    $(popup).slideDown('fast', function() {
+                      _clearFormInputs();
+                    });
+                }
+            });
 
         }
     };
@@ -701,6 +715,12 @@
           $(entry).addClass('input-alert');
       });
 
+    };
+
+    var _clearFormInputs = function() {
+      form.each(function () {
+        this.reset();
+      });
     };
 
     return{
