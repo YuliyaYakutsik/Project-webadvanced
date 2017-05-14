@@ -14,17 +14,21 @@
     background-size: cover;
 }
 
-.flipper{
+.flipper-container{
 	display: inline-block;
     vertical-align: middle;
     width: 382px;
     height: 392px;
-    transform-style: preserve-3d;
-    transition: 2s;
+    perspective: 1000px;
 
     @include album{
       	height: 308px;
     }
+}
+
+.flipper{
+    transform-style: preserve-3d;
+    transition: 2s;
 }
 
 .flipper.active{
@@ -169,7 +173,7 @@
 
 .authorization__form-inputs{
 	padding: 0 20px;
-  	padding-bottom: 35px;
+  	padding-bottom: 29px;
   	font-family: 'robotoregular', Arial, sans-serif;
 
   	@include album{
@@ -240,6 +244,9 @@
 
 	&:checked+.authorization__form-checkbox-label::before{
 		background: url('../img/check.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		width: 23px;
 		height: 23px;
 		border: none;

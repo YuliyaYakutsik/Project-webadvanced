@@ -438,12 +438,84 @@
     var _setUpListeners = function () {
       $('.slider__link').on('click', function (e) {
         e.preventDefault();
+        var $this = $(this),
+            sliderContainer = $this.closest('.slider'),
+            items = $('.slider__display_first').find('.slider__item'),
+            itemsDescription = sliderContainer.find('.works__item'),
+            itemsDescriptionContainer = itemsDescription.closest('.works__list');
 
         if (!inProcess) {
           inProcess = true;
-          _showNextSlide($('.slider__display_first'), 'down');
-          _showNextSlide($('.slider__display_opposite'), 'up');
-          counter++;
+
+          if ($this.hasClass('slider__link_down')) {
+            counter--;
+          } else {
+            counter++;
+          }
+
+          if (counter > items.length-1) {
+            counter = 0
+          }
+
+          if (counter < 0) {
+            counter = items.length-1
+          }
+
+          var mainSrc = items.eq(counter).find('img').attr('src');
+
+          var activePicFadeOut = $.Deferred(),
+              activePicLoaded = $.Deferred(),
+              activePicFadeIn = $.Deferred(),
+              descContainerFadeOut = $.Deferred(),
+              descContainerChanged = $.Deferred(),
+              descContainerFadeIn = $.Deferred(),
+              sliderChangeFinished = $.Deferred();
+
+          $('.slider__active-pic').fadeOut(250, function(){
+            activePicFadeOut.resolve();
+          });
+
+          activePicFadeOut.done (function() {
+            $('.slider__active-pic').attr('src', mainSrc).on('load', function () {
+              activePicLoaded.resolve();
+            });
+          });
+
+          activePicLoaded.done (function (){
+            $('.slider__active-pic').fadeIn(250, function () {
+              activePicFadeIn.resolve();
+            });
+          });
+
+          itemsDescriptionContainer.fadeOut(220, function() {
+            descContainerFadeOut.resolve();
+          });
+
+          descContainerFadeOut.done (function () {
+            itemsDescription.filter('.active').removeClass('active');
+            itemsDescription.eq(counter).addClass('active');
+            descContainerChanged.resolve();
+          });
+
+          descContainerChanged.done (function () {
+            itemsDescriptionContainer.fadeIn(220, function () {
+              descContainerFadeIn.resolve();
+            });
+          });
+
+          if ($this.hasClass('slider__link_down')) {
+            _showNextSlide($('.slider__display_first'), 'up');
+            _showNextSlide($('.slider__display_opposite'), 'down');
+            sliderChangeFinished.resolve();
+          } else {
+            _showNextSlide($('.slider__display_first'), 'down');
+            _showNextSlide($('.slider__display_opposite'), 'up');
+            sliderChangeFinished.resolve();
+          }
+
+          $.when (activePicFadeIn, descContainerFadeIn, sliderChangeFinished).done (function () {
+            inProcess = false;
+          });
         }
 
       });
@@ -451,26 +523,258 @@
 
     var _showNextSlide = function (container, direction) {
 
-      var items = container.find('.slider__item'),
-          activeItem = items.filter('.active'),
-          direction = (direction == 'down')? 100 : -100;
+      var innerCounter = counter,
+          items = container.find('.slider__item'),
+          oldItem = items.filter('.active');
 
-      if (counter >= items.length) counter = 0;
-        
-      var reqItem = items.eq(counter);
+      if (container.hasClass('slider__display_first')) {
+        (innerCounter - 1 < 0) ? innerCounter = items.length-1 : innerCounter-- ;
+      } else {
+        (innerCounter + 1 > items.length-1) ? innerCounter = 0 : innerCounter++ ;
+      }
 
-      activeItem.animate({
-        'top': direction + '%'
-      }, duration);
+      var newItem = items.eq(innerCounter);
 
-      reqItem.animate({
-        'top': '0%'
-      }, duration, function(){
-        activeItem.removeClass('active').css('top', direction*(-1) + '%');
-        $(this).addClass('active');
-        inProcess = false;
+      _onSlide(newItem, oldItem, direction);
+
+    };
+
+    var _onSlide = function (newItem, oldItem, direction) {
+
+      var direction = (direction == 'down')? 100 : -100;
+
+      newItem.css('top', direction*(-1) + '%');
+      oldItem.animate({'top': direction +'%'}, duration);
+      newItem.animate({'top': '0'}, duration, function(){
+        newItem.siblings().removeClass('active');
+        newItem.addClass('active');
+      });
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  var downArrow = (function () {
+
+    var scrollTo = $('.section_to_scroll');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+
+      $('.down-arrow').on('click', function(e) {
+        e.preventDefault();          
+        _scrollToSection();
+      });
+    };
+
+    var _scrollToSection = function () {
+  
+      var reqPos = scrollTo.offset().top;
+
+      $('body, html').animate({scrollTop: reqPos}, 500);
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  var upArrow = (function () {
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+
+      $('.up-arrow').on('click', function(e) {
+        e.preventDefault();          
+        _scrollToTop();
+      });
+    };
+
+    var _scrollToTop = function () {
+
+      $('body, html').animate({scrollTop: 0}, 500);
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  var writeMe = (function () {
+
+    var form = $('#reviews__form');
+
+    var init = function () {
+
+      _setUpListeners();
+
+    };
+
+    var _setUpListeners = function () {
+
+      form.on('submit', function (e) {
+        e.preventDefault();
+        _clearMessagesAndInputStyles();
+        _contactMeFormInitialization();
       });
 
+      $('.reviews__form-button-reset').on('click', function(e) {
+        e.preventDefault();
+        form[0].reset();
+        _clearMessagesAndInputStyles();        
+      });
+
+    };
+
+    var _clearMessagesAndInputStyles = function() {
+
+      $('.reviews-form__messages-alert').slideUp(300);
+      form.find('.reviews__form-element').each(function () {
+          $(this).removeClass('input-alert');
+      });
+
+    };
+
+    var _contactMeFormInitialization = function () {
+
+        var formdata = form.serialize(),
+            sendName = $('#sendName').val(),
+            sendEmail = $('#sendEmail').val(),
+            sendText = $('#sendText').val();
+
+        if (!sendName.trim() || !sendEmail.trim() || !sendText.trim()) {
+
+            $('#emptyFieldsDanger').slideDown(300, function () {
+                _populateAndHighlightEmptyInputs();
+            });
+            return false;
+
+        } else { 
+
+            $('#onChecking').show('fast');
+
+        }
+    };
+
+    var _populateAndHighlightEmptyInputs = function() {
+
+      var emptyInputs = [];
+
+      $('#reviews__form').find('.reviews__form-element').each(function () {
+        if (!$(this).val().trim()) {
+            emptyInputs.push($(this));
+        }
+      });
+
+      console.log(emptyInputs);
+
+      _highlightEmptyInputs(emptyInputs);
+
+    };
+
+    var _highlightEmptyInputs = function(emptyInputs) {
+
+      emptyInputs.forEach(function (entry) {
+          $(entry).addClass('input-alert');
+      });
+
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
+  //вставка отстилизованной GoogleMap
+  var initMap = (function () {
+
+    var init = function () {
+
+      var styleArray=[
+        {
+          featureType:'water',
+          stylers:[{color:'#00bfa5'}]
+        },
+        {
+          featureType:'landscape',
+          elementType:'geometry.fill',
+          stylers:[{color:'#ffffff'}]
+        },
+        {
+          featureType:'landscape.man_made',
+          elementType:'all',
+          stylers:[{saturation:'-70'}]
+        },
+        {
+          featureType:'landscape.natural',
+          elementType:'all',
+          stylers:[{visibility:'off'}]
+        },
+        {
+          featureType:'poi',
+          elementType:'labels',
+          stylers:[{visibility:'off'}]
+        },
+        {
+          featureType:'poi.park',
+          elementType:'all',
+          stylers:[{visibility:'off'}]
+        },
+        {
+          featureType:'road',
+          elementType:'all',
+          stylers:[{lightness:'-5'}]
+        },
+        {
+          featureType:'transit',
+          elementType:'labels',
+          stylers:[{visibility:'off'}]
+        }
+      ];
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 53.912838, lng: 27.566431},
+        scrollwheel: false,
+        styles:styleArray,
+        zoom: 15,
+        disableDefaultUI:true
+      });
+
+      var marker = new google.maps.Marker({
+        position: {lat: 53.910684, lng: 27.556924},
+        // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
+        map: map,
+        // Пишем название маркера - появится если навести на него курсор и немного подождать
+        title: 'Мое местонахождение',
+        // Укажем свою иконку для маркера
+        icon: 'assets/img/map_marker_large.png'
+      });
     };
 
     return{
@@ -512,71 +816,23 @@
     if($('.slider').length){
       slider.init();  
     }
+
+    if($('.down-arrow').length){
+      downArrow.init();  
+    }
+
+    if($('.up-arrow').length){
+      upArrow.init();  
+    }
+
+    if($('.write-me').length){
+      writeMe.init();  
+    }
+
+    if($('.map').length){
+      initMap.init();  
+    }
+
   });
 
 })();
-
-
-//вставка отстилизованной GoogleMap
-function initMap() {
-
-  var styleArray=[
-    {
-      featureType:'water',
-      stylers:[{color:'#00bfa5'}]
-    },
-    {
-      featureType:'landscape',
-      elementType:'geometry.fill',
-      stylers:[{color:'#ffffff'}]
-    },
-    {
-      featureType:'landscape.man_made',
-      elementType:'all',
-      stylers:[{saturation:'-70'}]
-    },
-    {
-      featureType:'landscape.natural',
-      elementType:'all',
-      stylers:[{visibility:'off'}]
-    },
-    {
-      featureType:'poi',
-      elementType:'labels',
-      stylers:[{visibility:'off'}]
-    },
-    {
-      featureType:'poi.park',
-      elementType:'all',
-      stylers:[{visibility:'off'}]
-    },
-    {
-      featureType:'road',
-      elementType:'all',
-      stylers:[{lightness:'-5'}]
-    },
-    {
-      featureType:'transit',
-      elementType:'labels',
-      stylers:[{visibility:'off'}]
-    }
-  ];
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 53.912838, lng: 27.566431},
-    scrollwheel: false,
-    styles:styleArray,
-    zoom: 15,
-    disableDefaultUI:true
-  });
-
-  var marker = new google.maps.Marker({
-    position: {lat: 53.910684, lng: 27.556924},
-    // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
-    map: map,
-    // Пишем название маркера - появится если навести на него курсор и немного подождать
-    title: 'Мое местонахождение',
-    // Укажем свою иконку для маркера
-    icon: 'assets/img/map_marker_large.png'
-  });
-}

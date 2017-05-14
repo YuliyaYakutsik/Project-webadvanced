@@ -4,7 +4,7 @@ block variables
 	- var title = 'About page'
 
 block scripts
-	script(async,defer,src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU&callback=initMap')
+	script(async,defer,src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRZU0C-xlSQxjWMGh9wJm76UKczr9lU')
 
 block content
 	.preloader
@@ -57,7 +57,7 @@ block content
 								img.user__pic(src='assets/img/ava.jpg', alt='Ava')
 							.user__name.user__name_color_white Юлия Якутик
 							.user__description.user__description_color_white Личный сайт веб-разработчика
-		section.section.about
+		section.section.about.section_to_scroll
 			svg(
 				viewbox="0 0 1000 90"
 				preserveAspectRatio="none"
