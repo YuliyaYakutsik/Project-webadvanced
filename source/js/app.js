@@ -703,8 +703,6 @@
         }
       });
 
-      console.log(emptyInputs);
-
       _highlightEmptyInputs(emptyInputs);
 
     };
