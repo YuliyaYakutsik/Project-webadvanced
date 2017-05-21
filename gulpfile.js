@@ -1,7 +1,7 @@
-
 'use strict';
 
 global.$ = {
+  dev: true,
   package: require('./package.json'),
   config: require('./gulp/config'),
   path: {
@@ -12,7 +12,13 @@ global.$ = {
   },
   gulp: require('gulp'),
   del: require('del'),
+  merge: require('merge-stream'),
+  browserify : require('browserify'),
+  source : require('vinyl-source-stream'),
+  buffer : require('vinyl-buffer'),
+  babel : require('babelify'),
   browserSync: require('browser-sync').create(),
+  fs : require('fs'),
   gp: require('gulp-load-plugins')()
 };
 
@@ -26,7 +32,6 @@ $.gulp.task('default', $.gulp.series(
   $.gulp.parallel(
     'fonts',
     'sass',
-    'pug',
     'js:foundation',
     'js:process',
     'copy:image',
@@ -34,6 +39,7 @@ $.gulp.task('default', $.gulp.series(
     'sprite:svg',
     'php'
   ),
+  'nodemon',
   $.gulp.parallel(
     'watch',
     'serve'
