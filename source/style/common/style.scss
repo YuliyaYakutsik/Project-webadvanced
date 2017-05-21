@@ -82,6 +82,13 @@ a{
 	bottom: 0;
 	text-align: center;
 	min-height: 400px;
+
+	@include tablets{
+    	background-image: url('../img/mountains.jpg');
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    	background-size: cover;
+    }
 }
 
 .wrapper_background::before{

@@ -319,10 +319,10 @@
   position: relative;
   cursor: default;
 
-  &:hover{
+  &.active{
 
     .skill__circle-second{
-      stroke-dasharray: 241 282.6;
+      stroke-dasharray: 134 282.6;
     }
 
   }
@@ -351,7 +351,7 @@
 .skill__circle-second{
   stroke: #00bea4;
   stroke-linecap: round;
-  stroke-dasharray: 141.3 282.6;
+  stroke-dasharray: 0 282.6;
   transition: $transition;
 }
 
