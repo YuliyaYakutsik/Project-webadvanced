@@ -1,36 +1,96 @@
 extends ../_template
 
 block content
+    
+    .wrapper.admin
+        .admin-header
+            .admin-header__container
+                .admin__title
+                    |Панель администрирования
+                .admin__button
+                    a.admin__link(href="index")
+                        |Вернуться на сайт
 
-  .row.authorizaton
-    .col
-      .form-container
-        form.form#upload(action='/upload' method="POST" enctype="multipart/form-data")
-            .form__subtitle Загрузите картинку на сервер
-            .status
-            label.form__input-line
-                input(name="name" type="text" placeholder="Описание картинки").form__input#file-desc
-            label.form__input-line
-                input(name="photo" type="file" required accept="image/*").form__input#file-select
-            .form__btns.form__input-line
-                input(name="" type="submit" value="Отправить").form__btn-send
-                input(name="" type="reset" value="Очистить").form__btn-reset
-    .col
-      .form-container
-        form.form#blog(method="POST")
-            .form__subtitle Добавить запись в блог
-            .status 
-            label.form__input-line
-                input(name="title" type="text" placeholder="Заголовок").form__input.form__input_needed
-            label.form__input-line
-                - 
-                    var data = new Date().toLocaleDateString('ru', { 
-                                year: 'numeric', 
-                                month: '2-digit', 
-                                day: '2-digit'
-                                })
-                input(name="date" type="date" value=`${data}`).form__input
-            textarea(placeholder="Ваша запись" name="text").form__textarea.form__input.form__input_needed
-            .form__btns.form__input-line
-                input(name="" type="submit" value="Отправить").form__btn-send
-                input(name="" type="reset" value="Очистить").form__btn-reset
+        .admin-content
+            .admin-content__container.tabs
+                ul.tabs__controls
+                    li.tabs__controls-item.tabs__controls-item_active
+                        a(href="#").tabs__controls-link
+                            |Tab 1
+                    li.tabs__controls-item
+                        a(href="#").tabs__controls-link
+                            |Tab 2
+                    li.tabs__controls-item
+                        a(href="#").tabs__controls-link
+                            |Tab 3
+                    li.tabs__controls-item
+                        a(href="#").tabs__controls-link
+                            |Tab 4    
+                ul.tabs__list
+                    li.tabs__item.tabs__item_active
+                        h1.tabs__item-title
+                            |Страница "Обо мне"
+                        .form-container
+                            form.form#skills(method="POST")
+                                ul.form-skills
+                                    each skill in skills
+                                        each skillsArray, skillName in skill
+                                            li.form-skills__item
+                                                .form-skill-section
+                                                    .form-skill-section__title= skillName
+                                                    ul.form-skill-section__list
+                                                        each skillTitle in skillsArray
+                                                            li.form-skills-section__item
+                                                                label.form-skills-block
+                                                                        .form-skill-label
+                                                                            .form-skill__name= skillTitle
+                                                                        input.form__input_admin.form__input_admin_skills(name="skill", type="text")
+                                                                        .form-skill-percents
+                                                                            |%
+                                .form__btns.form__input-line
+                                    input(name="" type="submit" value="Сохранить").form__btn-send
+                    li.tabs__item
+                        h1.tabs__item-title
+                            |Страница "Блог"
+                        .form-container
+                            form.form#blog(method="POST")
+                                .form__subtitle Добавить запись
+                                .status 
+                                label.form__input-line
+                                    input(name="title" type="text" placeholder="Название").form__input.form__input_needed.form__input_admin
+                                label.form__input-line
+                                    - 
+                                        var data = new Date().toLocaleDateString('ru', { 
+                                                    year: 'numeric', 
+                                                    month: '2-digit', 
+                                                    day: '2-digit'
+                                                    })
+                                    input(name="date" type="date" value=`${data}`).form__input.form__input_admin
+                                textarea(placeholder="Содержание" name="text").form__textarea.form__input.form__input_needed.form__textarea_admin.form__input_admin
+                                .form__btns.form__input-line
+                                    input(name="" type="submit" value="Добавить").form__btn-send
+                                    input(name="" type="reset" value="Очистить").form__btn-reset
+                    li.tabs__item
+                        h1.tabs__item-title
+                            |Страница "Мои работы"
+                        .form-container
+                            form.form#upload(action='/upload' method="POST" enctype="multipart/form-data")
+                                .form__subtitle Добавить работу
+                                .status
+                                label.form__input-line
+                                    input(name="name" type="text" placeholder="Название проекта").form__input.form__input_admin.form__input_admin_pic#file-desc
+                                label.form__input-line
+                                    input(name="technics" type="text" placeholder="Технологии").form__input.form__input_admin.form__input_admin_pic#file-technics
+                                label.form__input-line.file_upload
+                                    img(src="assets/img/img_load.png").file_upload-img
+                                    span.file_upload-button
+                                        |Загрузить катинку
+                                    input(name="photo" type="file" required accept="image/*").form__input#file-select
+                                .form__btns.form__input-line
+                                    input(name="" type="submit" value="Добавить").form__btn-send
+                                
+                    li.tabs__item
+                        h1.tabs__item-title
+                            |Tab 4
+                        p
+                            |Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem optio necessitatibus id. Fugiat quis quidem omnis, tempora blanditiis delectus optio qui totam pariatur corporis accusamus libero recusandae vero sunt architecto laborum debitis possimus aperiam perspiciatis asperiores. Perferendis illum tempore ea.

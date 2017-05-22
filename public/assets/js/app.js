@@ -218,7 +218,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
             contentBarItem.each(function () {
                 var $this = $(this),
-                    topEdge = $this.offset().top - 250,
+                    topEdge = $this.offset().top - 400,
                     bottomEdge = topEdge + $this.height(),
                     wScroll = $(window).scrollTop();
 
@@ -693,6 +693,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         };
     }();
 
+    var tabs = function () {
+
+        var init = function init() {
+            _setUpListeners();
+        };
+
+        var _setUpListeners = function _setUpListeners() {
+            $(document).ready(function () {
+                $('.tabs__controls-link').on('click', _tabsChanging);
+            });
+        };
+
+        var _tabsChanging = function _tabsChanging(e) {
+            e.preventDefault();
+            var item = $(this).closest('.tabs__controls-item');
+            var contentItem = $('.tabs__item');
+            var position = item.index();
+
+            contentItem.eq(position).addClass('tabs__item_active').siblings().removeClass('tabs__item_active');
+            item.addClass('tabs__controls-item_active').siblings().removeClass('tabs__controls-item_active');
+        };
+
+        return {
+
+            init: init
+
+        };
+    }();
+
     var addedBlog = function () {
         var formBlog = document.querySelector('#blog'),
             form = $('#blog'),
@@ -855,7 +884,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
     var addedPic = function () {
         var formUpload = document.querySelector('#upload'),
-            form = $('#upload');
+            form = $('#upload'),
+            alert = form.find($('.status'));
 
         var init = function init() {
             _setUpListeners();
@@ -871,28 +901,59 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         var _clearMessagesAndInputStyles = function _clearMessagesAndInputStyles() {
 
-            form.find('#file-desc').each(function () {
+            form.find('.form__input_admin_pic').each(function () {
                 $(this).removeClass('input-alert');
             });
         };
 
         var _prepareSendFile = function _prepareSendFile() {
+            alert.text('');
             var resultContainer = formUpload.querySelector('.status');
             var formData = new FormData();
             var file = document.querySelector('#file-select').files[0];
             var name = document.querySelector('#file-desc').value.trim();
+            var technics = document.querySelector('#file-technics').value.trim();
 
-            if (!name) {
-                form.find('#file-desc').addClass('input-alert');
+            if (!name || !technics) {
+                _populateAndHighlightEmptyInputs();
+                alert.text('Не указано описание картинки');
+            } else {
+                _clearFormInputs();
+                formData.append('photo', file, file.name);
+                formData.append('name', name);
+                formData.append('technics', technics);
+
+                resultContainer.innerHTML = 'Uploading...';
+                (0, _upload2.default)('/slider', formData, function (data) {
+                    resultContainer.innerHTML = data;
+                    formUpload.reset();
+                });
             }
+        };
 
-            formData.append('photo', file, file.name);
-            formData.append('name', name);
+        var _populateAndHighlightEmptyInputs = function _populateAndHighlightEmptyInputs() {
 
-            resultContainer.innerHTML = 'Uploading...';
-            (0, _upload2.default)('/slider', formData, function (data) {
-                resultContainer.innerHTML = data;
-                formUpload.reset();
+            var emptyInputs = [];
+
+            form.find('.form__input_admin_pic').each(function () {
+                if (!$(this).val().trim()) {
+                    emptyInputs.push($(this));
+                }
+            });
+
+            _highlightEmptyInputs(emptyInputs);
+        };
+
+        var _highlightEmptyInputs = function _highlightEmptyInputs(emptyInputs) {
+
+            emptyInputs.forEach(function (entry) {
+                $(entry).addClass('input-alert');
+            });
+        };
+
+        var _clearFormInputs = function _clearFormInputs() {
+            form.each(function () {
+                this.reset();
             });
         };
 
@@ -903,6 +964,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
     var makeAuthorization = function () {
         var formLogin = document.querySelector('#login');
+        var alert = $('.status'),
+            form = $('#login');
 
         var init = function init() {
             _setUpListeners();
@@ -921,11 +984,56 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 login: formLogin.user.value,
                 password: formLogin.password.value
             };
+            alert.text('');
 
-            (0, _prepareSend2.default)('/login', formLogin, data, function (data) {
-                if (data === 'Авторизация успешна!') {
-                    location.href = '/admin';
+            if (!data.login || !data.password) {
+                _populateAndHighlightEmptyInputs();
+                alert.text('Введите логин и пароль!');
+            } else {
+                _clearMessagesAndInputStyles();
+                if ($('.authorization__form-checkbox').prop('checked') && $(":radio[name=answer]").filter(":checked").val() == "yes") {
+                    _clearFormInputs();
+                    (0, _prepareSend2.default)('/login', formLogin, data, function (data) {
+                        if (data === 'Авторизация успешна!') {
+                            location.href = '/admin';
+                        }
+                    });
+                } else {
+                    alert.text('Не людям тут не место');
                 }
+            }
+        };
+
+        var _populateAndHighlightEmptyInputs = function _populateAndHighlightEmptyInputs() {
+
+            var emptyInputs = [];
+
+            form.find('.authorization__form-element').each(function () {
+                if (!$(this).val().trim()) {
+                    emptyInputs.push($(this));
+                }
+            });
+
+            _highlightEmptyInputs(emptyInputs);
+        };
+
+        var _highlightEmptyInputs = function _highlightEmptyInputs(emptyInputs) {
+
+            emptyInputs.forEach(function (entry) {
+                $(entry).addClass('input-alert');
+            });
+        };
+
+        var _clearMessagesAndInputStyles = function _clearMessagesAndInputStyles() {
+
+            form.find('.authorization__form-element').each(function () {
+                $(this).removeClass('input-alert');
+            });
+        };
+
+        var _clearFormInputs = function _clearFormInputs() {
+            form.each(function () {
+                this.reset();
             });
         };
 
@@ -1048,6 +1156,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         if ($('.skills').length) {
             animateSkills.init();
+        }
+
+        if ($('.tabs').length) {
+            tabs.init();
         }
 
         if ($('#blog').length) {

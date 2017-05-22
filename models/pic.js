@@ -7,6 +7,10 @@ const mongoose = require('mongoose'),
       type: String,
       required: [true, 'Укажите описание картинки']
     },
+    technics: {
+      type: String,
+      required: [true, 'Укажите описание картинки']
+    },
     picture: {
       type: String
     }

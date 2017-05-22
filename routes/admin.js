@@ -1,5 +1,8 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
+const content = require('../content.json');
 const formidable = require('formidable');
 const fs = require('fs');
 const path = require('path');
@@ -19,7 +22,8 @@ const isAdmin = (req, res, next) => {
 
 router.get('/', isAdmin, function (req, res) {
   let obj = {
-    title: 'Admin page'
+    title: 'Admin page',
+    skills: content.skills
   };
   Object.assign(obj, req.app.locals.settings);
   res.render('pages/admin', obj);

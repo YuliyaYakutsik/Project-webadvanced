@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const content = require('../content.json');
 const router = express.Router();

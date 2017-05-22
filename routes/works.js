@@ -1,14 +1,25 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const config = require('../config.json');
+const mongoose = require('mongoose');
 
 router.get('/', function (req, res) {
   let obj = {
     title: 'Works page'
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages/works', obj);
+  const Model1 = mongoose.model('pic');
+  Model1
+    .find()
+    .then(items => {
+      // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
+      // записей в блоге
+      Object.assign(obj, {items: items});
+      res.render('pages/works', obj);
+  });
 });
 
 router.post('/', function (req, res) {

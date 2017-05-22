@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 const formidable = require('formidable');
@@ -24,7 +26,7 @@ router.post('/', isAdmin, function (req, res) {
     if (err) {
       return res.json({status: 'Не удалось загрузить картинку'});
     }
-    if (!fields.name) {
+    if (!fields.name || !fields.technics) {
       fs.unlink(files.photo.path);
       return res.json({status: 'Не указано описание картинки!'});
     }
@@ -39,7 +41,7 @@ router.post('/', isAdmin, function (req, res) {
       let dir = config
         .upload
         .substr(config.upload.indexOf('/'));
-      const item = new Model({name: fields.name, picture: path.join(dir,files.photo.name)});
+      const item = new Model({name: fields.name, technics: fields.technics, picture: path.join(dir,files.photo.name)});
       item
         .save()
         .then(
