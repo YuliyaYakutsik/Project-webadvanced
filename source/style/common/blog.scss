@@ -7,7 +7,6 @@
 	background: $bg;
 	padding: 80px 0;
 	color: #77868d;
-	overflow: hidden;
 	font-family: 'robotoregular', Arial, sans-serif;
 
 	@include phones{
@@ -151,34 +150,6 @@
     	margin-left: 0;
     	margin: 0 auto;
   	}
-}
-
-.content-blog__list_new{
-	.content-blog__item:first-child{
-		margin-top: 160px;
-
-		@include phones{
-	    	margin-top: 80px;
-  		}
-	}
-
-	.content-blog__item:first-child::before{
-		content:"";
-		height: 5px;
-		position: absolute;
-		top: -80px;
-		right: 290px;
-		left: 0;
-		background: rgba(#373e42, .07);
-
-		@include laptop{
-    		right: 0;
-  		}
-
-  		@include phones{
-	    	top: -40px;
-  		}
-	}
 }
 
 .content-blog__item{

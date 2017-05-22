@@ -36,8 +36,7 @@ $.gulp.task('default', $.gulp.series(
     'js:process',
     'copy:image',
     'css:foundation',
-    'sprite:svg',
-    'php'
+    'sprite:svg'
   ),
   'nodemon',
   $.gulp.parallel(

@@ -225,7 +225,7 @@ import fileUpload from './upload';
 
       contentBarItem.each(function() {
         var $this = $(this),
-            topEdge = $this.offset().top - 250,
+            topEdge = $this.offset().top - 400,
             bottomEdge = topEdge + $this.height(),
             wScroll = $(window).scrollTop();
 
@@ -740,6 +740,42 @@ import fileUpload from './upload';
 
   })();
 
+  var tabs = (function () {
+
+    var init = function () {
+      _setUpListeners();
+    };
+
+    var _setUpListeners = function () {
+      $(document).ready(function(){
+        $('.tabs__controls-link').on('click', _tabsChanging);
+      });
+    };
+
+    var _tabsChanging = function (e) {
+      e.preventDefault();
+      var item = $(this).closest('.tabs__controls-item');
+      var contentItem = $('.tabs__item');
+      var position = item.index();
+
+      contentItem.eq(position)
+        .addClass('tabs__item_active')
+        .siblings()
+        .removeClass('tabs__item_active');
+      item
+        .addClass('tabs__controls-item_active')
+        .siblings()
+        .removeClass('tabs__controls-item_active');
+    };
+
+    return{
+
+      init:init
+
+    };
+
+  })();
+
   var addedBlog = (function () {
     var formBlog = document.querySelector('#blog'),
         form = $('#blog'),
@@ -902,7 +938,6 @@ import fileUpload from './upload';
       });
     };
     
-
     return{
 
       init:init
@@ -913,7 +948,8 @@ import fileUpload from './upload';
 
   var addedPic = (function () {
     const formUpload = document.querySelector('#upload'),
-          form = $('#upload');
+          form = $('#upload'),
+          alert = form.find($('.status'));
     
     var init = function () {
       _setUpListeners ();
@@ -929,13 +965,14 @@ import fileUpload from './upload';
 
     var _clearMessagesAndInputStyles = function() {
 
-      form.find('#file-desc').each(function () {
+      form.find('.form__input_admin_pic').each(function () {
           $(this).removeClass('input-alert');
       });
 
     };
 
     var _prepareSendFile = function() {
+      alert.text('');
       let resultContainer = formUpload.querySelector('.status');
       let formData = new FormData();
       let file = document
@@ -944,18 +981,52 @@ import fileUpload from './upload';
       let name = document
         .querySelector('#file-desc')
         .value.trim();
+      let technics = document
+        .querySelector('#file-technics')
+        .value.trim();
 
-      if (!name) {
-        form.find('#file-desc').addClass('input-alert');
+      if (!name || !technics) {
+        _populateAndHighlightEmptyInputs();
+        alert.text('Не указано описание картинки');
+      } else { 
+        _clearFormInputs();
+        formData.append('photo', file, file.name);
+        formData.append('name', name);
+        formData.append('technics', technics);
+
+        resultContainer.innerHTML = 'Uploading...';
+        fileUpload('/slider', formData, function (data) {
+          resultContainer.innerHTML = data;
+          formUpload.reset();
+        });
       }
+    };
 
-      formData.append('photo', file, file.name);
-      formData.append('name', name);
+    var _populateAndHighlightEmptyInputs = function() {
 
-      resultContainer.innerHTML = 'Uploading...';
-      fileUpload('/slider', formData, function (data) {
-        resultContainer.innerHTML = data;
-        formUpload.reset();
+      var emptyInputs = [];
+
+      form.find('.form__input_admin_pic').each(function () {
+        if (!$(this).val().trim()) {
+            emptyInputs.push($(this));
+        }
+      });
+
+      _highlightEmptyInputs(emptyInputs);
+
+    };
+
+    var _highlightEmptyInputs = function(emptyInputs) {
+
+      emptyInputs.forEach(function (entry) {
+          $(entry).addClass('input-alert');
+      });
+
+    };
+
+    var _clearFormInputs = function() {
+      form.each(function () {
+        this.reset();
       });
     };
 
@@ -967,6 +1038,8 @@ import fileUpload from './upload';
 
   var makeAuthorization = (function () {
     const formLogin = document.querySelector('#login');
+    var alert = $('.status'),
+        form = $('#login');
     
     var init = function () {
       _setUpListeners ();
@@ -985,11 +1058,60 @@ import fileUpload from './upload';
         login: formLogin.user.value,
         password: formLogin.password.value
       };
-      
-      prepareSend('/login', formLogin, data, function(data) {
-        if (data === 'Авторизация успешна!') {
-          location.href = '/admin';
+      alert.text('');
+
+      if (!data.login || !data.password) {
+        _populateAndHighlightEmptyInputs();
+        alert.text('Введите логин и пароль!');
+      } else {
+        _clearMessagesAndInputStyles();
+        if ($('.authorization__form-checkbox').prop('checked') && $(":radio[name=answer]").filter(":checked").val()=="yes") {
+          _clearFormInputs();
+          prepareSend('/login', formLogin, data, function(data) {
+            if (data === 'Авторизация успешна!') {
+              location.href = '/admin';
+            }
+          });
+        } else {
+          alert.text('Не людям тут не место');
         }
+      }
+      
+    };
+
+    var _populateAndHighlightEmptyInputs = function() {
+
+      var emptyInputs = [];
+
+      form.find('.authorization__form-element').each(function () {
+        if (!$(this).val().trim()) {
+            emptyInputs.push($(this));
+        }
+      });
+
+      _highlightEmptyInputs(emptyInputs);
+
+    };
+
+    var _highlightEmptyInputs = function(emptyInputs) {
+
+      emptyInputs.forEach(function (entry) {
+          $(entry).addClass('input-alert');
+      });
+
+    };
+
+    var _clearMessagesAndInputStyles = function() {
+
+      form.find('.authorization__form-element').each(function () {
+          $(this).removeClass('input-alert');
+      });
+
+    };
+
+    var _clearFormInputs = function() {
+      form.each(function () {
+        this.reset();
       });
     };
 
@@ -1124,6 +1246,10 @@ import fileUpload from './upload';
 
     if($('.skills').length){
       animateSkills.init(); 
+    }
+
+    if($('.tabs').length){
+      tabs.init(); 
     }
 
     if($('#blog').length){

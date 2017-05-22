@@ -98,6 +98,15 @@ block content
 									a.works__button(href='https://loftschool.com/', target=_blank)
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
+							each index in items
+								li.works__item
+									+title__small(index.name, 'works__section-title_small')
+									.workds__techologies
+										.works__technologies-desc= index.technics
+									.works__link
+										a.works__button(href='https://loftschool.com/', target=_blank)
+											i.fa.fa-link(aria-hidden='true') 
+											.works__button-text Посмотреть сайт
 				.slider__active
 					img(src='assets/img/work-1.png').slider__active-pic
 				.slider__other-slides
@@ -111,6 +120,9 @@ block content
 								img.slider__item-pic(src='assets/img/work-2.png')
 							li.slider__item
 								img.slider__item-pic(src='assets/img/write_me.jpg')
+							each index in items
+								li.slider__item
+									img.slider__item-pic(src=`${index.picture}`)
 						a.slider__link.slider__link_down(href='#').slider__link_color_lighten
 									.slider__button
 										i.fa.fa-chevron-down(aria-hidden='true')
@@ -124,6 +136,9 @@ block content
 								img.slider__item-pic(src='assets/img/work-2.png')
 							li.slider__item
 								img.slider__item-pic(src='assets/img/write_me.jpg')
+							each index in items
+								li.slider__item
+									img.slider__item-pic(src=`${index.picture}`)
 						a.slider__link.slider__link_up(href='#')
 							.slider__button
 								i.fa.fa-chevron-up(aria-hidden='true')

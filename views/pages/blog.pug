@@ -76,10 +76,9 @@ block content
 						li.nav-blog__item
 							a.nav-blog__link(href='#three')
 								|Самый необходимый набор Gulp плагинов
-					ul.nav-blog__list.nav-blog__list_new
 						each index in items
 							li.nav-blog__item
-								a.nav-blog__link(href='#')= index.title
+								a.nav-blog__link(href='#'+`${index.title}`)= index.title
 				.content-blog
 					ul.content-blog__list
 						li.content-blog__item(data-section="one")
@@ -141,9 +140,8 @@ block content
 									|Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
 									|Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
 									|Lorem ipsum dolor sit amet, consectetur |adipisicing elit. Pariatur fuga voluptatum |sequi quis, blanditiis facilis, in id |labore officiis officia placeat, culpa |dolorum cum quas eaque dolore soluta iste |maiores doloribus omnis voluptate. Sapiente |temporibus ratione facilis doloribus enim |reiciendis porro a earum animi cum, ipsa |omnis cumque dolore excepturi?
-					ul.content-blog__list_new
 						each index in items
-							li.content-blog__item
+							li.content-blog__item(data-section=`${index.title}`)
 								.content-blog__item-main
 									.content-blog__item-title= index.title
 										- 
@@ -154,12 +152,6 @@ block content
 													})
 									.content-blog__item-date= data
 									.content-blog__item-text= index.body
-					//ul
-						each index in pics
-							figure
-								p
-								img(src=`${index.picture}`)
-								figcaption= index.name
 	footer.footer__pages
 		.footer-up
 			.footer-up__left
