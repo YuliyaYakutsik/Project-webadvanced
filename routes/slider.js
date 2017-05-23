@@ -24,11 +24,11 @@ router.post('/', isAdmin, function (req, res) {
   form.uploadDir = path.join(process.cwd(), config.upload);
   form.parse(req, function(err, fields, files) {
     if (err) {
-      return res.json({status: 'Не удалось загрузить картинку'});
+      return res.json({status: 'Не удалось загрузить новый проект'});
     }
     if (!fields.name || !fields.technics) {
       fs.unlink(files.photo.path);
-      return res.json({status: 'Не указано описание картинки!'});
+      return res.json({status: 'Не указано описание проекта!'});
     }
     //если ошибок нет, то создаем новую picture и передаем в нее поле из формы
     const Model = mongoose.model('pic');
@@ -45,7 +45,7 @@ router.post('/', isAdmin, function (req, res) {
       item
         .save()
         .then(
-            i => res.json({status: 'Картинка успешно загружена'}),
+            i => res.json({status: 'Проект успешно добавлен'}),
             e => res.json({status: e.message})
         );
       // const item = new Model({name: fields.name});

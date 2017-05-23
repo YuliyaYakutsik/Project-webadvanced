@@ -92,19 +92,18 @@ block content
 						.about-user-info__text
 							p Больше всего меня привлекает Frontend разработка, но я также знаком и могу решать сложные задачи на Backend. Но давайте по порядку.
 						ul.skills
-							each skill in skills
-								each skillsArray, skillName in skill
-									li.skills__item
-										.skill-section
-											.skill-section__title= skillName
-											ul.skill-section__list
-												each skillTitle in skillsArray
-													li.skills-section__item
-														.skill
-															svg.skill__circle(viewbox='0 0 110 110')
-																circle.skill__circle-first(r='45', cx='50%', cy='50%')
-																circle.skill__circle-second(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-															.skill__name= skillTitle
+							each skillName in items
+								li.skills__item
+									.skill-section
+										.skill-section__title= skillName.section
+										ul.skill-section__list
+											each skill in skillName.items
+												li.skills-section__item
+													.skill
+														svg.skill__circle(viewbox='0 0 110 110')
+															circle.skill__circle-first(r='45', cx='50%', cy='50%')
+															circle(class=`skill__circle-second circle-${skill.value}` r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+														.skill__name= skill.name
 		section.section.map.last
 			.contacts.information
 				+title__small('Контакты', 'about__section-title_small')

@@ -32,21 +32,21 @@ block content
                             |Страница "Обо мне"
                         .form-container
                             form.form#skills(method="POST")
+                                .status
                                 ul.form-skills
-                                    each skill in skills
-                                        each skillsArray, skillName in skill
-                                            li.form-skills__item
-                                                .form-skill-section
-                                                    .form-skill-section__title= skillName
-                                                    ul.form-skill-section__list
-                                                        each skillTitle in skillsArray
-                                                            li.form-skills-section__item
-                                                                label.form-skills-block
-                                                                        .form-skill-label
-                                                                            .form-skill__name= skillTitle
-                                                                        input.form__input_admin.form__input_admin_skills(name="skill", type="text")
-                                                                        .form-skill-percents
-                                                                            |%
+                                    each skill in items
+                                        li.form-skills__item
+                                            .form-skill-section
+                                                .form-skill-section__title= skill.section
+                                                ul.form-skill-section__list
+                                                    each lineSkill in skill.items
+                                                        li.form-skills-section__item
+                                                            label.form-skills-block
+                                                                    .form-skill-label
+                                                                        .form-skill__name= lineSkill.name
+                                                                    input.form__input_admin.form__input_admin_skills(type="text", name=`${lineSkill.name}`, value=`${lineSkill.value}`)
+                                                                    .form-skill-percents
+                                                                        |%
                                 .form__btns.form__input-line
                                     input(name="" type="submit" value="Сохранить").form__btn-send
                     li.tabs__item
@@ -91,6 +91,6 @@ block content
                                 
                     li.tabs__item
                         h1.tabs__item-title
-                            |Tab 4
+                            |Сюрприз
                         p
-                            |Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem optio necessitatibus id. Fugiat quis quidem omnis, tempora blanditiis delectus optio qui totam pariatur corporis accusamus libero recusandae vero sunt architecto laborum debitis possimus aperiam perspiciatis asperiores. Perferendis illum tempore ea.
+                            |Здесь в скором времени появится новая опция, которую можно будет реализовывать на моем сайте-портфолио. А пока, это просто еще один таб, чтобы вы могли побаловаться:)

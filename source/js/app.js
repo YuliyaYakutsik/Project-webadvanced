@@ -987,7 +987,7 @@ import fileUpload from './upload';
 
       if (!name || !technics) {
         _populateAndHighlightEmptyInputs();
-        alert.text('Не указано описание картинки');
+        alert.text('Не указано описание проекта');
       } else { 
         _clearFormInputs();
         formData.append('photo', file, file.name);
@@ -1121,6 +1121,40 @@ import fileUpload from './upload';
 
   })();
 
+  var updateSkills = (function () {
+    const formSkills = document.querySelector('#skills');
+    
+    var init = function () {
+      _setUpListeners ();
+    };
+
+    var _setUpListeners = function () {
+      formSkills.addEventListener('submit', function(e){
+        e.preventDefault();
+        _prepareSendSkills();
+      });
+    };
+
+    var _prepareSendSkills = function() {
+      console.log(formSkills);
+      let data = {};
+      const itemsElement = document.querySelectorAll('.form-skill-section__title');
+      itemsElement.forEach(i => {
+        let inputs = i.parentNode.querySelectorAll('input');
+        data[i.textContent] = [];
+        inputs.forEach(input => {
+          data[i.textContent].push({name: input.name, value: input.value });
+        });
+      });
+
+      prepareSend('/addskills', formSkills, data);
+    };
+
+    return {
+      init:init
+    };
+
+  })();
 
   //вставка отстилизованной GoogleMap
   var initMap = (function () {
@@ -1266,6 +1300,10 @@ import fileUpload from './upload';
 
     if($('#login').length){
       makeAuthorization.init();  
+    }
+
+    if($('#skills').length){
+      updateSkills.init();  
     }
 
   });

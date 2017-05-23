@@ -916,7 +916,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
             if (!name || !technics) {
                 _populateAndHighlightEmptyInputs();
-                alert.text('Не указано описание картинки');
+                alert.text('Не указано описание проекта');
             } else {
                 _clearFormInputs();
                 formData.append('photo', file, file.name);
@@ -1035,6 +1035,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
             form.each(function () {
                 this.reset();
             });
+        };
+
+        return {
+            init: init
+        };
+    }();
+
+    var updateSkills = function () {
+        var formSkills = document.querySelector('#skills');
+
+        var init = function init() {
+            _setUpListeners();
+        };
+
+        var _setUpListeners = function _setUpListeners() {
+            formSkills.addEventListener('submit', function (e) {
+                e.preventDefault();
+                _prepareSendSkills();
+            });
+        };
+
+        var _prepareSendSkills = function _prepareSendSkills() {
+            console.log(formSkills);
+            var data = {};
+            var itemsElement = document.querySelectorAll('.form-skill-section__title');
+            itemsElement.forEach(function (i) {
+                var inputs = i.parentNode.querySelectorAll('input');
+                data[i.textContent] = [];
+                inputs.forEach(function (input) {
+                    data[i.textContent].push({ name: input.name, value: input.value });
+                });
+            });
+
+            (0, _prepareSend2.default)('/addskills', formSkills, data);
         };
 
         return {
@@ -1176,6 +1210,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         if ($('#login').length) {
             makeAuthorization.init();
+        }
+
+        if ($('#skills').length) {
+            updateSkills.init();
         }
     });
 })();
