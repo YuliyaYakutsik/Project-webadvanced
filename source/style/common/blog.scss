@@ -87,6 +87,8 @@
 	@include tablets{
     	width: 100%;
     	z-index: 1;
+    	max-height: 100vh;
+      	overflow: auto;
     	padding: 30px;
 
     	&:not(:first-of-type){

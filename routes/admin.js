@@ -2,7 +2,6 @@
 
 const express = require('express');
 const router = express.Router();
-const content = require('../content.json');
 const formidable = require('formidable');
 const fs = require('fs');
 const path = require('path');
@@ -20,13 +19,21 @@ const isAdmin = (req, res, next) => {
   res.redirect('/');
 };
 
-router.get('/', isAdmin, function (req, res) {
+router.get('/', isAdmin, function(req, res) {
   let obj = {
-    title: 'Admin page',
-    skills: content.skills
+    title: 'Admin page'
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages/admin', obj);
+  let Model = mongoose.model('skills');
+  Model.find({}).then(
+    items => {
+      Object.assign(obj, { items: items });
+      res.render('pages/admin', obj);
+    },
+    e => {
+      console.log(e.message);
+    }
+  );
 });
 
 module.exports = router;

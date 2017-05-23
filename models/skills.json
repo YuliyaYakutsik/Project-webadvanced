@@ -1,0 +1,56 @@
+[
+  {
+    "id": "frontend",
+    "name": "Frontend",
+    "items": [
+      {
+        "name": "HTML",
+        "value": 90
+      },
+      {
+        "name": "CSS",
+        "value": 90
+      },
+      {
+        "name": "Javascript & JQuery",
+        "value": 80
+      }
+    ]
+  },
+  {
+    "id": "backend",
+    "name": "Backend",
+    "items": [
+      {
+        "name": "PHP",
+        "value": 90
+      },
+      {
+        "name": "Node.js",
+        "value": 90
+      },
+      {
+        "name": "Mongo.db",
+        "value": 80
+      }
+    ]
+  },
+  {
+    "id": "workflow",
+    "name": "Workflow",
+    "items": [
+      {
+        "name": "Git",
+        "value": 100
+      },
+      {
+        "name": "Gulp",
+        "value": 90
+      },
+      {
+        "name": "Bower",
+        "value": 80
+      }
+    ]
+  }
+]

@@ -14,8 +14,8 @@
       		"port": 465,
       		"secure": true,
       		"auth": {
-        		"user": "juliayakutik@gmail.com",
-        		"pass": "demonstration lesson"
+        		"user": "juliayakutik1@gmail.com",
+        		"pass": "demonstration"
       		}
     	}
   }

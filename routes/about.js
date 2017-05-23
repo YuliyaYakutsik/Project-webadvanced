@@ -1,16 +1,26 @@
 'use strict';
 
 const express = require('express');
-const content = require('../content.json');
+const content = require('../models/skills.json');
 const router = express.Router();
+const mongoose = require('mongoose');
 
 router.get('/', function (req, res) {
   let obj = {
-    title: 'About page',
-    skills: content.skills
+    title: 'About page'
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages/about', obj);
+  let Model = mongoose.model('skills');
+  Model
+  	.find()
+  	.then(items => {
+      Object.assign(obj, { items: items });
+      res.render('pages/about', obj);
+    },
+    e => {
+      console.log(e.message);
+    }
+  );
 });
 
 module.exports = router;

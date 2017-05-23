@@ -175,9 +175,10 @@
     resize: none;
     overflow: auto;
     width: 500px;
+    max-width: 100%;
 }
 
-.form__btn-send, .form__btn-reset{
+.form__btn-send[type='submit'], .form__btn-reset[type='reset']{
   padding: 15px;
   color: #fff;
   background: #00bfa5;
@@ -193,9 +194,9 @@
   }
 }
 
-#blog .status, #upload .status{
+#blog .status, #upload .status, #skills .status{
     height: 1.2rem;
-    color: red;
+    color: #00bfa5;
     margin-bottom: 20px;
 }
 

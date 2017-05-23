@@ -71,7 +71,7 @@ block content
 								.workds__techologies
 									.works__technologies-desc HTML, CSS
 								.works__link
-									a.works__button(href='https://loftschool.com/', target=_blank)
+									a.works__button(href='https://loftschool.com/', target='_blank')
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 							li.works__item.active
@@ -79,7 +79,7 @@ block content
 								.workds__techologies
 									.works__technologies-desc HTML, CSS, JavaScript
 								.works__link
-									a.works__button(href='https://loftschool.com/', target=_blank)
+									a.works__button(href='https://loftschool.com/', target='_blank')
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 							li.works__item
@@ -87,7 +87,7 @@ block content
 								.workds__techologies
 									.works__technologies-desc HTML, CSS, JavaScript, JQuery
 								.works__link
-									a.works__button(href='https://loftschool.com/', target=_blank)
+									a.works__button(href='https://loftschool.com/', target='_blank')
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 							li.works__item
@@ -95,7 +95,7 @@ block content
 								.workds__techologies
 									.works__technologies-desc HTML, CSS, JavaScript, JQuery, PHP
 								.works__link
-									a.works__button(href='https://loftschool.com/', target=_blank)
+									a.works__button(href='https://loftschool.com/', target='_blank')
 										i.fa.fa-link(aria-hidden='true') 
 										.works__button-text Посмотреть сайт
 							each index in items
@@ -104,7 +104,7 @@ block content
 									.workds__techologies
 										.works__technologies-desc= index.technics
 									.works__link
-										a.works__button(href='https://loftschool.com/', target=_blank)
+										a.works__button(href='https://loftschool.com/', target='_blank')
 											i.fa.fa-link(aria-hidden='true') 
 											.works__button-text Посмотреть сайт
 				.slider__active
@@ -170,15 +170,6 @@ block content
 							.reviews__item-person-block
 								.reviews__item-person-title Сабанцев Владимир
 								.reviews__item-person-role Преподаватель
-			.reviews-form__messages
-				.reviews-form__messages-element.reviews-form__messages-alert#emptyFieldsDanger
-					|Пожалуйста, заполните все поля в форме! 
-				.reviews-form__messages-element.reviews-form__messages-alert#onChecking
-					|Происходит обработка запроса! Пожалуйста, подождите! 
-				.reviews-form__messages-element#success
-					|Ваше сообщение отправлено!
-				.reviews-form__messages-element#error
-					|Извините, произошла ошибка. Пожалуйста, повторите отправку формы!
 			.write-me.blur
 				.write-me__blur-wrapper
 					.write-me__blur
