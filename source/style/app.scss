@@ -6,6 +6,7 @@ $white : #efeee9;
 $beige: #eeebdf;
 $main-font-color : #455a64;
 $bg : rgb(250, 248, 240);
+$green: #00bfa5;
 
 @mixin laptop(){
 	@media screen and (max-width:1200px){
@@ -14,7 +15,7 @@ $bg : rgb(250, 248, 240);
 }
 
 @mixin tablets(){
-	@media screen and (max-width:768px){
+	@media screen and (max-width:770px){
 		@content;
 	}
 }
@@ -32,7 +33,7 @@ $bg : rgb(250, 248, 240);
 }
 
 @mixin album(){
-	@media screen and (orientation:landscape) and (max-width:768px){
+	@media screen and (orientation:landscape) and (max-width:770px){
 		@content;
 	}
 }

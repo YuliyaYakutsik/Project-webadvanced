@@ -218,7 +218,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
             contentBarItem.each(function () {
                 var $this = $(this),
-                    topEdge = $this.offset().top - 400,
+                    topEdge = $this.offset().top - 150,
                     bottomEdge = topEdge + $this.height(),
                     wScroll = $(window).scrollTop();
 
@@ -624,7 +624,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
             var wScroll = $(window).scrollTop();
             _move(bg, wScroll, 30);
             _move(portfolio, wScroll, 7);
-            _move(user, wScroll, 2);
+            _move(user, wScroll, -6);
         };
 
         var _move = function _move(block, windowScroll, strafeAmount) {
@@ -668,7 +668,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         var _startAnimation = function _startAnimation() {
 
-            if ($(window).height() >= $('.skills').offset().top + $('.skills').height() || $('.skills').offset().top - $(window).scrollTop() - $('.skills').height() / 2 - Math.ceil($(window).height() / ($('body').height() / $(window).height())) < 0) {
+            if ($(window).height() >= $('.skills').offset().top + $('.skills').height() || $('.skills').offset().top - $(window).scrollTop() + $('.skills').height() / 2 - Math.ceil($(window).height() / ($('body').height() / $(window).height())) < 0) {
                 _animate();
             }
         };
@@ -840,13 +840,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 text: formMail.text.value.trim()
             };
 
+            alert.text('');
+
             if (!data.name || !data.email || !data.text) {
                 _populateAndHighlightEmptyInputs();
+                alert.text('Пожалуйста, заполните все поля в форме');
             } else {
+                alert.text('Ваше сообщение успешно отправлено');
                 _clearFormInputs();
+                //prepareSend('/works', formMail, data);
             }
-
-            (0, _prepareSend2.default)('/works', formMail, data);
         };
 
         var _populateAndHighlightEmptyInputs = function _populateAndHighlightEmptyInputs() {
@@ -1057,16 +1060,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         };
 
         var _prepareSendSkills = function _prepareSendSkills() {
-            console.log(formSkills);
             var data = {};
             var itemsElement = document.querySelectorAll('.form-skill-section__title');
-            itemsElement.forEach(function (i) {
+
+            for (var i = 0; i < itemsElement.length; i++) {
+                var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+                data[itemsElement[i].textContent] = [];
+
+                for (var input = 0; input < inputs.length; input++) {
+                    var a = inputs[input].name;
+                    var b = inputs[input].value;
+                    data[itemsElement[i].textContent].push({ name: a, value: b });
+                }
+            }
+            /*itemsElement.forEach(function (i) {
                 var inputs = i.parentNode.querySelectorAll('input');
                 data[i.textContent] = [];
                 inputs.forEach(function (input) {
                     data[i.textContent].push({ name: input.name, value: input.value });
                 });
-            });
+            });*/
 
             (0, _prepareSend2.default)('/addskills', formSkills, data);
         };
