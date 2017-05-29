@@ -9,7 +9,7 @@
 
 .admin-header{
     height: 100px;
-    background-color: #00bfa5;
+    background-color: $green;
 }
 
 .admin-header__container{
@@ -68,7 +68,7 @@
         background: #fff;
 
         .tabs__controls-link{
-            color: #00bfa5;
+            color: $green;
         }
     }
 
@@ -181,7 +181,7 @@
 .form__btn-send[type='submit'], .form__btn-reset[type='reset']{
   padding: 15px;
   color: #fff;
-  background: #00bfa5;
+  background: $green;
   border: none;
   transition: $transition;
   cursor: pointer;
@@ -196,7 +196,7 @@
 
 #blog .status, #upload .status, #skills .status{
     height: 1.2rem;
-    color: #00bfa5;
+    color: $green;
     margin-bottom: 20px;
 }
 
@@ -236,7 +236,7 @@
 .file_upload-button{
     display: block;                 
     height: 100%;
-    color: #00bfa5; 
+    color: $green; 
     text-align: center;
     transition: $transition;      
 }

@@ -225,7 +225,7 @@ import fileUpload from './upload';
 
       contentBarItem.each(function() {
         var $this = $(this),
-            topEdge = $this.offset().top - 400,
+            topEdge = $this.offset().top - 150,
             bottomEdge = topEdge + $this.height(),
             wScroll = $(window).scrollTop();
 
@@ -666,7 +666,7 @@ import fileUpload from './upload';
       var wScroll = $(window).scrollTop();
       _move (bg, wScroll, 30);
       _move (portfolio, wScroll, 7);
-      _move (user, wScroll, 2);
+      _move (user, wScroll, -6);
     };
 
     var _move = function (block, windowScroll, strafeAmount) {
@@ -712,7 +712,7 @@ import fileUpload from './upload';
 
     var _startAnimation = function () {
 
-      if ($(window).height()>=($('.skills').offset().top + $('.skills').height()) || ($('.skills').offset().top - $(window).scrollTop() - $('.skills').height()/2 - Math.ceil($(window).height()/($('body').height()/$(window).height())))<0) {
+      if ($(window).height() >= ($('.skills').offset().top + $('.skills').height()) || ($('.skills').offset().top - $(window).scrollTop() + $('.skills').height()/2 - (Math.ceil($(window).height() / ($('body').height() / $(window).height()))) < 0)) {
         _animate();
       }
 
@@ -901,13 +901,17 @@ import fileUpload from './upload';
         text: formMail.text.value.trim()
       };
 
+      alert.text('');
+
       if (!data.name || !data.email || !data.text) {
         _populateAndHighlightEmptyInputs();
+        alert.text('Пожалуйста, заполните все поля в форме');
       } else { 
+        alert.text('Ваше сообщение успешно отправлено');
         _clearFormInputs();
+        //prepareSend('/works', formMail, data);
       }
-
-      prepareSend('/works', formMail, data);
+      
     };
 
     var _populateAndHighlightEmptyInputs = function() {
@@ -1121,40 +1125,50 @@ import fileUpload from './upload';
 
   })();
 
-  var updateSkills = (function () {
-    const formSkills = document.querySelector('#skills');
-    
-    var init = function () {
-      _setUpListeners ();
+  var updateSkills = function () {
+    var formSkills = document.querySelector('#skills');
+
+    var init = function init() {
+      _setUpListeners();
     };
 
-    var _setUpListeners = function () {
-      formSkills.addEventListener('submit', function(e){
-        e.preventDefault();
-        _prepareSendSkills();
+    var _setUpListeners = function _setUpListeners() {
+      formSkills.addEventListener('submit', function (e) {
+          e.preventDefault();
+          _prepareSendSkills();
       });
     };
 
-    var _prepareSendSkills = function() {
-      console.log(formSkills);
-      let data = {};
-      const itemsElement = document.querySelectorAll('.form-skill-section__title');
-      itemsElement.forEach(i => {
-        let inputs = i.parentNode.querySelectorAll('input');
-        data[i.textContent] = [];
-        inputs.forEach(input => {
-          data[i.textContent].push({name: input.name, value: input.value });
-        });
-      });
+    var _prepareSendSkills = function _prepareSendSkills() {
+      var data = {};
+      var itemsElement = document.querySelectorAll('.form-skill-section__title');
+
+      for (var i=0; i<itemsElement.length; i++) {
+          var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+          data[itemsElement[i].textContent] = [];
+
+          for (var input=0; input<inputs.length; input++) {
+              var a = inputs[input].name;
+              var b = inputs[input].value;
+              data[itemsElement[i].textContent].push({ name: a, value: b });
+          }
+      }
+      /*itemsElement.forEach(function (i) {
+          var inputs = i.parentNode.querySelectorAll('input');
+          data[i.textContent] = [];
+          inputs.forEach(function (input) {
+              data[i.textContent].push({ name: input.name, value: input.value });
+          });
+      });*/
 
       prepareSend('/addskills', formSkills, data);
     };
 
     return {
-      init:init
+      init: init
     };
 
-  })();
+  }();
 
   //вставка отстилизованной GoogleMap
   var initMap = (function () {

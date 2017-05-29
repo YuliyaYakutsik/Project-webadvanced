@@ -57,9 +57,9 @@
   display: inline-block;
   text-transform: uppercase;
   padding: 10px 80px;
-  border-top: 1px solid #00bfa5;
-  border-bottom: 1px solid #00bfa5;
-  color: #00bfa5;
+  border-top: 1px solid $green;
+  border-bottom: 1px solid $green;
+  color: $green;
 }
 
 .slider__active{
@@ -93,7 +93,7 @@
 .works__button{
   padding: 10px 20px;
   display: inline-block;
-  background: #00bfa5;
+  background: $green;
   color: #fff;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -101,8 +101,8 @@
 
   &:hover{
     background: #fff;
-    color: #00bfa5;
-    border: 1px solid #00bfa5;
+    color: $green;
+    border: 1px solid $green;
   }
 }
 
@@ -361,7 +361,7 @@
 .reviews__form-status{
   margin-top:-1rem;
   height: 1.2rem;
-  color: #00bfa5;
+  color: $green;
 }
 
 .reviews__form-inputs{
@@ -401,7 +401,7 @@
   width: 49.7%;
   padding: 15px;
   color: #fff;
-  background: #00bfa5;
+  background: $green;
   border: none;
   transition: $transition;
   cursor: pointer;

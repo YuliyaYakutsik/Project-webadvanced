@@ -121,7 +121,7 @@
 
 .socials__list_color_green{
 	.socials__link{
-		color: #00bfa5;
+		color: $green;
 
 		&:hover{
 			color: #009688;
@@ -153,7 +153,7 @@
 .nav__link{
 	display: block;
 	padding: 11px 10px;
-	background-color: rgba(#00bfa5, .85);
+	background-color: rgba($green, .85);
 	color: #fff;
 	font-size: 16px;
 	transition: $transition;
@@ -291,7 +291,7 @@
 	    width: 8px;
 	    height: 8px;
 	    border-radius: 50px;
-	    background: #00bfa5;
+	    background: $green;
 	}
 
 	&+ .radio-label{
@@ -308,7 +308,7 @@
 	display: flex;
 	padding: 15px;
   	color: #fff;
-  	background: #00bfa5;
+  	background: $green;
   	border: none;
   	transition: $transition;
   	cursor: pointer;
@@ -366,7 +366,7 @@
 }
 
 .authorization__link:hover{
-	color: #00bfa5;
+	color: $green;
 	background-color: #fff;
 }
 
